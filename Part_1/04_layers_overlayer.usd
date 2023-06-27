@@ -15,5 +15,6 @@ over "refSphere2" (
     over "world"
     {
         color3f[] primvars:displayColor = [(1, 0, 0)]
+        double radius = 3
     }
 }
