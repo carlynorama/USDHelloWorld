@@ -1,0 +1,26 @@
+#usda 1.0
+(
+    defaultPrim = "Primitive"
+    endTimeCode = 300
+    startTimeCode = 1
+    upAxis = "Y"
+)
+def Xform "Primitive" ( 
+    prepend apiSchemas = ["Preliminary_AnchoringAPI"] 
+)
+{
+    uniform token preliminary:anchoring:type = "plane"
+    uniform token preliminary:planeAnchoring:alignment = "vertical"
+    def Cube "SilverBox" 
+    {
+        # Transform and Material
+        double size = 0.25
+        rel material:binding = </Texturing/Shaders/Metal>
+        color3f[] primvars:displayColor = [(0.5, 0.5, 0.5)]
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+        float3 xformOp:translate = (0.0, 0.1, 0.0)
+        # Basic Animation
+        float xformOp:rotateY:spin.timeSamples = { 1: 0, 300: 1800 }
+        uniform token[] xformOpOrder = ["xformOp:rotateY:spin"]
+    }
+}

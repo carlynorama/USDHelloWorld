@@ -1,0 +1,19 @@
+#usda 1.0
+#https://openusd.org/release/tut_referencing_layers.html
+
+over "refSphere" (
+    prepend references = @./04_layers_primdef.usd@
+)
+{
+    uniform token[] xformOpOrder = []
+}
+
+over "refSphere2" (
+    prepend references = @./04_layers_primdef.usd@
+)
+{
+    over "world"
+    {
+        color3f[] primvars:displayColor = [(1, 0, 0)]
+    }
+}

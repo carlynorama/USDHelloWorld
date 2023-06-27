@@ -1,0 +1,28 @@
+#usda 1.0
+
+def Xform "Transform" 
+{
+    def Sphere "Sphere" 
+    { 
+    }
+}
+
+def Xform "Texturing" 
+{
+    def Scope "Shaders" 
+    {
+        def Material "Metal" 
+        {
+            token outputs:surface.connect </Texturing/Shaders/Metal/
+SurfaceShading.outputs:surface>
+            def Shader "SurfaceShading" 
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.85, 0.75, 0.25)
+                float inputs:metallic = 1.0
+                float inputs:roughness = 0.5
+                token outputs:surface
+            }
+        }
+    }
+}
