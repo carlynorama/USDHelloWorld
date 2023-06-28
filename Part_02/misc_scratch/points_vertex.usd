@@ -6,5 +6,5 @@ def Points "points1"
     color3f[] primvars:displayColor = [(1.0, 0.0, 0.0), (1.0, 0.5, 0.0), (0.0, 1.0, 0.0), (0.0, 1.0, 0.5), (0.5, 0.0, 1.0)] (
         interpolation = "vertex"
     )
-    float[] widths = [1.0, 5.0, 1.0, 5.0, 1.0]
+    float[] widths = [1.0, 1.0, 1.0, 1.0, 1.0]
 }
