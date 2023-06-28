@@ -1,0 +1,142 @@
+#usda 1.0
+# https://stackoverflow.com/questions/74462822/python-for-usd-map-a-texture-on-a-cube-so-every-face-have-the-same-image
+(
+    defaultPrim = "ImageCube"
+    upAxis = "Y"
+)
+
+
+# def Xform "Cube"
+# {
+#     matrix4d xformOp:transform = ( (0.9999999403953552, 0, 0, 0), (0, 7.549790126404332e-8, 1, 0), (0, -1, 7.549790126404332e-8, 0), (0, 0, 0, 1) )
+#     uniform token[] xformOpOrder = ["xformOp:transform"]
+
+#     def Mesh "cubeMesh"
+#     {
+#         float3[] extent = [(-1, -1, -1), (1, 1, 1)]
+#         int[] faceVertexCounts = [4, 4, 4, 4, 4, 4]
+#         int[] faceVertexIndices = [0, 1, 2, 3, 4, 5, 6, 7, 0, 6, 5, 1, 4, 7, 3, 2, 0, 3, 7, 6, 4, 2, 1, 5]
+#         normal3f[] normals = [(0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, -1), (0, 0, -1), (0, 0, -1), (0, 0, -1), (0, 1, 0), (0, 1, 0), (0, 1, 0), (0, 1, 0), (0, -1, 0), (0, -1, 0), (0, -1, 0), (0, -1, 0), (1, 0, 0), (1, 0, 0), (1, 0, 0), (1, 0, 0), (-1, 0, 0), (-1, 0, 0), (-1, 0, 0), (-1, 0, 0)] (
+#             interpolation = "faceVarying"
+#         )
+#         point3f[] points = [(1, 1, 1), (-1, 1, 1), (-1, -1, 1), (1, -1, 1), (-1, -1, -1), (-1, 1, -1), (1, 1, -1), (1, -1, -1)]
+#         uniform token subdivisionScheme = "none"
+#         rel material:binding = </Texturing/myFlatGreen>
+#     }
+# }
+
+def Xform "ImageCube"
+{
+    matrix4d xformOp:transform = ( (0.9999999403953552, 0, 0, 0), (0, 7.549790126404332e-8, 1, 0), (0, -1, 7.549790126404332e-8, 0), (0, 0, 0, 1) )
+    uniform token[] xformOpOrder = ["xformOp:transform"]
+
+    def Mesh "cubeMesh"
+    {
+        float3[] extent = [(-1, -1, -1), (1, 1, 1)]
+        int[] faceVertexCounts = [4, 4, 4, 4, 4, 4]
+        int[] faceVertexIndices = [0, 1, 2, 3, 4, 5, 6, 7, 0, 6, 5, 1, 4, 7, 3, 2, 0, 3, 7, 6, 4, 2, 1, 5]
+        normal3f[] normals = [(0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, -1), (0, 0, -1), (0, 0, -1), (0, 0, -1), (0, 1, 0), (0, 1, 0), (0, 1, 0), (0, 1, 0), (0, -1, 0), (0, -1, 0), (0, -1, 0), (0, -1, 0), (1, 0, 0), (1, 0, 0), (1, 0, 0), (1, 0, 0), (-1, 0, 0), (-1, 0, 0), (-1, 0, 0), (-1, 0, 0)] (
+            interpolation = "faceVarying"
+        )
+        point3f[] points = [(1, 1, 1), (-1, 1, 1), (-1, -1, 1), (1, -1, 1), (-1, -1, -1), (-1, 1, -1), (1, 1, -1), (1, -1, -1)]
+        
+        #The default name of the texture coordinate to be use to calculate the tangent frame is "st"
+        texCoord2f[] primvars:st = [ (0, 0), (0, 1), (1, 0), (1, 1), (0, 0), 
+                                     (0, 1), (1, 0), (1, 1), (0, 0), (0, 1), 
+                                     (1, 0), (1, 1), (0, 0), (0, 1) ] (    
+            interpolation = "faceVarying"
+        )
+        int[] primvars:st:indices = [ 0, 1, 2, 3,   3, 2, 4, 5,    5, 4, 6, 7, 
+                                      7, 6, 8, 9,   1, 10, 11, 2,  12, 0, 3, 13 ]
+
+        
+        uniform token subdivisionScheme = "none"
+        rel material:binding = </Texturing/myImage>
+    }
+}
+
+
+# def Xform "Cube" (kind = "component")
+# {
+#     def Mesh "polyCube"
+#     {    
+#         float3[] extent = [(-0.5, -0.5, -0.5), (0.5, 0.5, 0.5)]    
+#         int[] faceVertexCounts = [4, 4, 4, 4, 4, 4]    
+#         int[] faceVertexIndices = [ 0, 1, 3, 2,  2, 3, 5, 4,  4, 5, 7, 6, 
+#                                     6, 7, 1, 0,  1, 7, 5, 3,  6, 0, 2, 4 ]
+
+#         point3f[] points = [ (-0.5,-0.5, 0.5), (0.5,-0.5, 0.5), 
+#                              (-0.5, 0.5, 0.5), (0.5, 0.5, 0.5), 
+#                              (-0.5, 0.5,-0.5), (0.5, 0.5,-0.5), 
+#                              (-0.5,-0.5,-0.5), (0.5,-0.5,-0.5) ]
+
+#         texCoord2f[] primvars:st = [ (0, 0), (0, 1), (1, 0), (1, 1), (0, 0), 
+#                                      (0, 1), (1, 0), (1, 1), (0, 0), (0, 1), 
+#                                      (1, 0), (1, 1), (0, 0), (0, 1) ] (    
+#             interpolation = "faceVarying"
+#         )
+
+#         int[] primvars:st:indices = [ 0, 1, 2, 3,   3, 2, 4, 5,    5, 4, 6, 7, 
+#                                       7, 6, 8, 9,   1, 10, 11, 2,  12, 0, 3, 13 ]
+
+#         color3f[] primvars:displayColor = [(0.75, 0, 0)]
+#         #rel material:binding = </Texturing/myFlatGreen>
+#     } 
+# }
+
+def Xform "Texturing" 
+{
+def Material "myFlatGreen"
+    {
+        token outputs:surface.connect = </Texturing/myFlatGreen/PBRShader.outputs:surface>
+        
+        def Shader "PBRShader"
+        {
+            uniform token info:id = "UsdPreviewSurface"
+            color3f inputs:diffuseColor = (0, 1, 0)
+            color3f inputs:emissiveColor = (0, 1, 0)
+            float inputs:metallic = 0
+            float inputs:roughness = 0.5
+            int inputs:useSpecularWorkflow = 0
+            token outputs:surface
+        }
+}
+    def Material "myImage"
+    {
+        token outputs:surface.connect = </Texturing/Material/Surface.outputs:surface>
+
+        def Shader "Surface"
+        {
+            uniform token info:id = "UsdUVTexture"
+            asset inputs:file = @image.jpg@
+
+            token inputs:wrapS = "repeat"
+            token inputs:wrapT = "repeat"
+            token outputs:rgb
+
+            color3f inputs:diffuseColor.connect = </Texturing/Material/Surface.outputs:rgb>    
+            token outputs:surface
+        }
+    }
+}
+
+# def Xform "Texturing" 
+# {
+#     def Material "Material"
+#     {
+#         token outputs:surface.connect = </Texturing/Material/Surface.outputs:surface>
+
+#         def Shader "Surface"
+#         {
+#             uniform token info:id = "UsdUVTexture"
+#             asset inputs:file = @image.jpg@
+
+#             token inputs:wrapS = "repeat"
+#             token inputs:wrapT = "repeat"
+#             token outputs:rgb
+
+#             color3f inputs:diffuseColor.connect = </Texturing/Material/Surface.outputs:rgb>    
+#             token outputs:surface
+#         }
+#     }
+# }
