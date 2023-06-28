@@ -2,14 +2,14 @@
 #https://openusd.org/release/tut_referencing_layers.html
 
 over "refSphere" (
-    prepend references = @./04_layers_primdef.usd@
+    prepend references = @./02_base_sphere.usd@
 )
 {
     uniform token[] xformOpOrder = []
 }
 
 over "refSphere2" (
-    prepend references = @./04_layers_primdef.usd@
+    prepend references = @./02_base_sphere.usd@
 )
 {
     over "world"
