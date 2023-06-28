@@ -9,7 +9,6 @@ Scratch pad for learning how to work with USD files
 - Understand USD Fundamentals, WWDC22, https://developer.apple.com/videos/play/wwdc2022/10129/
 - https://openusd.org/release/index.html
 - https://github.com/PixarAnimationStudios/OpenUSD
-- https://www.youtube.com/watch?v=spBpNlvbCgw USD import export Blender
 
 
 ### Misc
