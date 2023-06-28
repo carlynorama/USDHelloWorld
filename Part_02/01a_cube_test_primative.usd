@@ -1,0 +1,14 @@
+#usda 1.0
+(
+    defaultPrim = "hello"
+    upAxis = "Y"
+)
+
+def Xform "hello"
+{
+    def Cube "world"
+    {
+        float3[] extent = [(-2, -2, -2), (2, 2, 2)]
+        color3f[] primvars:displayColor = [(0, 1, 0)]
+    }
+}
