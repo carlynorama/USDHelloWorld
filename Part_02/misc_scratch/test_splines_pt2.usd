@@ -1,0 +1,18 @@
+#usda 1.0
+# https://github.com/PixarAnimationStudios/OpenUSD/issues/690
+def BasisCurves "cubic_catmullRom_1spline"
+{
+    uniform token type = "cubic" #linear
+    uniform token basis = "catmullRom"
+    int[] curveVertexCounts = [6]
+    point3f[] points = [(-75, -50, 0), (-50, 0, 0), (-25, 50, 0), (25, 50, 0), (50, 0, 0), (75, -50, 0)]
+    # color3f[] primvars:displayColor = [(1, 1, 1), (1, 0, 0), (1, 1, 0), (0, 1, 0), (0, 0, 1), (1, 0, 1)] (
+    #     interpolation = "vertex")
+    # color3f[] primvars:displayColor = [(1, 0, 0), (1, 1, 0), (0, 1, 0), (0, 0, 1), (1, 0, 1), (1, 1, 1)] (
+    #    interpolation = "varying")
+    # float[] widths = [3.5, 3.5, 9, 1.5, 0.1, 0.1] (
+    #    interpolation = "vertex")
+    # float[] widths = [3.5, 9, 1.5, 0.1] (
+    #    interpolation = "varying")
+    # float[] widths = [4.0](interpolation = "constant")
+}
