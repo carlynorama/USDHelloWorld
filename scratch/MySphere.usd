@@ -1,0 +1,25 @@
+// Schema.usda
+#usda 1.0
+
+class Sphere "Sphere" (
+    inherits = </Grprim>
+) {
+    double radius = 1.0
+    float3[] extent = [(-2, -2, -2), (2, 2, 2)]
+}
+
+// CustomSchema.usda
+#usda 1.0
+class WWDC "WWDC" {
+    token title
+    int year
+}
+
+# title and year are attributes of the Schema
+
+// WWDC22.usda
+#usda 1.0
+def WWDC "WWDC22" {
+    token title = "Call to code"
+    int year = 2022
+}
