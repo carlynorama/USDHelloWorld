@@ -1,0 +1,28 @@
+#usda 1.0
+
+
+over "materialOne" (
+    prepend references = @./03_material_variants.usd@
+    variants = {
+        string shadingVariant = "red"
+    }
+)
+{
+    double3 xformOp:translate = (4, 0, 0)
+    uniform token[] xformOpOrder = ["xformOp:translate"]
+}
+
+over "materialTwo" (
+    prepend references = @./03_material_variants.usd@
+)
+{
+}
+
+over "materialThree" (
+    prepend references = @./03_material_variants.usd@
+)
+{
+    double3 xformOp:translate = (-4, 0, 0)
+    uniform token[] xformOpOrder = ["xformOp:translate"]
+
+}

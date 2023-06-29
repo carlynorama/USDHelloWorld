@@ -1,0 +1,47 @@
+#usda 1.0
+(
+    defaultPrim = "Cube"
+    upAxis = "Y"
+)
+
+
+def Xform "Cube" (
+    variants = {
+        string shadingVariant = "green"
+    }
+    prepend variantSets = "shadingVariant"
+)
+{
+    def Mesh "cubeMesh"
+    {   
+        float3[] extent = [(-2, -2, -2), (2, 2, 2)]
+        int[] faceVertexCounts = [4, 4, 4, 4, 4, 4]
+        int[] faceVertexIndices = [0, 1, 2, 3, 4, 5, 6, 7, 0, 6, 5, 1, 4, 7, 3, 2, 0, 3, 7, 6, 4, 2, 1, 5]
+        point3f[] points = [(1, 1, 1), (-1, 1, 1), (-1, -1, 1), (1, -1, 1), (-1, -1, -1), (-1, 1, -1), (1, 1, -1), (1, -1, -1)]
+        uniform token subdivisionScheme = "none"
+        color3f[] primvars:displayColor
+    }
+    variantSet "shadingVariant" = {
+        "blue" {
+            over "cubeMesh"
+            {
+                color3f[] primvars:displayColor = [(0, 0, 1)]
+                rel material:binding = 
+            }
+        }
+
+        "green" {
+            over "cubeMesh"
+            {
+                color3f[] primvars:displayColor = [(0, 1, 0)]
+            }
+        }
+
+        "red" {
+            over "cubeMesh"
+            {
+                color3f[] primvars:displayColor = [(1, 0, 0)]
+            }
+        }
+    }
+}

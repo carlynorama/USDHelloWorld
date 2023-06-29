@@ -6,6 +6,7 @@
 
 def Xform "Cube" 
 (
+    prepend references = @./03_materials.usd@
     variants = {
         string shadingVariant = "green"
     }
@@ -26,7 +27,6 @@ def Xform "Cube"
         "blue" {
             over "cubeMesh"
             {
-                #color3f[] primvars:displayColor = [(0, 0, 1)]
                 rel material:binding = @./03_materials.usd@</_materials/exportedBlenderPurple>
             }
         }
@@ -34,7 +34,6 @@ def Xform "Cube"
         "green" {
             {
                 rel material:binding = @./03_materials.usd@</_materials/myFlatGreen>
-                #color3f[] primvars:displayColor = [(0, 1, 0)]
             }
         }
 
@@ -42,7 +41,6 @@ def Xform "Cube"
             over "cubeMesh"
             {
                 rel material:binding = @./03_materials.usd@</_materials/exportedApplePurple>
-                #color3f[] primvars:displayColor = [(1, 0, 0)]
             }
         }
     }
