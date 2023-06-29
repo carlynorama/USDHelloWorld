@@ -1,4 +1,7 @@
 #usda 1.0
+(
+    defaultPrim = "_materials"
+)
 
 def Scope "_materials"
 {

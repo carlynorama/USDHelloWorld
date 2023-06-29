@@ -7,7 +7,7 @@
 def Xform "Cube" 
 (
     variants = {
-        string shadingVariant = "red"
+        string shadingVariant = "green"
     }
     prepend variantSets = "shadingVariant"
 )
@@ -27,14 +27,13 @@ def Xform "Cube"
             over "cubeMesh"
             {
                 #color3f[] primvars:displayColor = [(0, 0, 1)]
-                rel material:binding = </_materials/exportedBlenderPurple>
+                rel material:binding = @./03_materials.usd@</_materials/exportedBlenderPurple>
             }
         }
 
         "green" {
-            over "cubeMesh"
             {
-                rel material:binding = </_materials/myFlatGreen>
+                rel material:binding = @./03_materials.usd@</_materials/myFlatGreen>
                 #color3f[] primvars:displayColor = [(0, 1, 0)]
             }
         }
@@ -42,59 +41,10 @@ def Xform "Cube"
         "red" {
             over "cubeMesh"
             {
-                rel material:binding = </_materials/exportedApplePurple>
+                rel material:binding = @./03_materials.usd@</_materials/exportedApplePurple>
                 #color3f[] primvars:displayColor = [(1, 0, 0)]
             }
         }
     }
 }
 
-
-def Scope "_materials"
-{
-    def Material "myFlatGreen"
-        {
-            token outputs:surface.connect = </_materials/myFlatGreen/PBRShader.outputs:surface>
-            
-            def Shader "PBRShader"
-            {
-                uniform token info:id = "UsdPreviewSurface"
-                color3f inputs:diffuseColor = (0, 1, 0)
-                color3f inputs:emissiveColor = (0, 1, 0)
-                float inputs:metallic = 0
-                float inputs:roughness = 0.5
-                int inputs:useSpecularWorkflow = 0
-                token outputs:surface
-            }
-    }
-
-    def Material "exportedBlenderPurple"
-    {
-        token outputs:surface.connect = </_materials/exportedBlenderPurple/previewShader.outputs:surface>
-
-        def Shader "previewShader"
-        {
-            uniform token info:id = "UsdPreviewSurface"
-            color3f inputs:diffuseColor = (0.8000001, 0.1429553, 0.52986294)
-            float inputs:metallic = 0
-            float inputs:roughness = 0.4
-            token outputs:surface
-        }
-    }
-
-    def Material "exportedApplePurple"
-    {
-        token outputs:surface.connect = </_materials/exportedApplePurple/PBRShader.outputs:surface>
-
-        def Shader "PBRShader"
-        {
-            uniform token info:id = "UsdPreviewSurface"
-            color3f inputs:diffuseColor = (0.31854683, 0.033104762, 1)
-            color3f inputs:emissiveColor = (0, 0, 0)
-            float inputs:metallic = 0
-            float inputs:roughness = 0.55
-            int inputs:useSpecularWorkflow = 0
-            token outputs:surface
-        }
-    }
-}
