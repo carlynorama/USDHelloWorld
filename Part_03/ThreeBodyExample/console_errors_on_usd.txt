@@ -1,0 +1,39 @@
+error	16:04:50.192722-0700	WindowServer	CGLayerKit called back with no connection
+error	16:04:50.192835-0700	WindowServer	CGLayerKit called back with no connection
+error	16:04:50.363650-0700	cfprefsd	Couldn't open parent path due to [2: No such file or directory]
+error	16:04:50.363782-0700	cfprefsd	Couldn't open parent path due to [2: No such file or directory]
+error	16:04:50.364029-0700	cfprefsd	Couldn't open parent path due to [2: No such file or directory]
+error	16:04:50.364365-0700	cfprefsd	Couldn't open parent path due to [2: No such file or directory]
+error	16:04:50.364470-0700	cfprefsd	Couldn't open parent path due to [2: No such file or directory]
+error	16:04:50.368557-0700	proactiveeventtrackerd	User passwd entry or home directory is not found
+error	16:04:50.368666-0700	proactiveeventtrackerd	Failed to initialize PETEventTracker2.
+error	16:04:50.368833-0700	proactiveeventtrackerd	Failed to initialize PET service. Exiting...
+error	16:04:51.293507-0700	runningboardd	setGPURole:pid: failed due to nil IOGPU device ref
+error	16:04:51.294447-0700	pkd	could not fetch persona generation ID (Error Domain=PlugInKit Code=-1 "persona generation ID unavailable" UserInfo={NSLocalizedDescription=persona generation ID unavailable}), flushing cache
+error	16:04:51.308877-0700	WindowServer	CGLayerKit called back with no connection
+error	16:04:51.309473-0700	WindowServer	CGLayerKit called back with no connection
+error	16:04:51.314218-0700	kernel	1 duplicate report for System Policy: mds(133) deny(1) file-read-data /private/var/db/searchparty/sharedVault/agents/BADE6C8F-36E9-4FD3-B815-5E34351823AC/savedConfiguration.plist
+error	16:04:51.314229-0700	kernel	Sandbox: HydraResourceCoordinator(44546) deny(1) file-read-metadata /Users/labtanza/Developer/GitHub/USDHelloWorld/Part_03/ThreeBodyExample
+error	16:04:51.486779-0700	HydraQLPreviewExtension	WARNING: Quick Look extensions should not have any views or subviews claim first responder
+error	16:04:51.510263-0700	SceneKitQLPreviewExtension	CGSWindowShmemCreateWithPort failed on port 0
+error	16:04:51.510602-0700	WindowServer	CGLayerKit called back with no connection
+error	16:04:51.511236-0700	WindowServer	ImageQueueCollectable client message err=0x10000003
+error	16:04:51.621856-0700	runningboardd	setGPURole:pid: failed due to nil IOGPU device ref
+error	16:04:53.243133-0700	cfprefsd	Couldn't open parent path due to [2: No such file or directory]
+error	16:04:53.243309-0700	cfprefsd	Couldn't open parent path due to [2: No such file or directory]
+error	16:04:53.243685-0700	cfprefsd	Couldn't open parent path due to [2: No such file or directory]
+error	16:04:53.244110-0700	cfprefsd	Couldn't open parent path due to [2: No such file or directory]
+error	16:04:53.244185-0700	cfprefsd	Couldn't open parent path due to [2: No such file or directory]
+error	16:04:53.248836-0700	mlruntimed	Fail to create directory at file:///var/mobile/Library/DES/SubmissionLogs/, with error=Error Domain=NSCocoaErrorDomain Code=513 "You don’t have permission to save the file “SubmissionLogs” in the folder “DES”." UserInfo={NSFilePath=/var/mobile/Library/DES/SubmissionLogs, NSUnderlyingError=0x6000011cc030 {Error Domain=NSPOSIXErrorDomain Code=13 "Permission denied"}}
+error	16:04:53.449326-0700	WindowServer	CGLayerKit called back with no connection
+error	16:04:53.449912-0700	WindowServer	CGLayerKit called back with no connection
+error	16:04:53.477698-0700	HydraQLPreviewExtension	WARNING: Quick Look extensions should not have any views or subviews claim first responder
+error	16:04:53.531795-0700	WindowServer	CGLayerKit called back with no connection
+error	16:04:54.070395-0700	Finder	CGSWindowShmemCreateWithPort failed on port 0
+error	16:04:54.076800-0700	WindowServer	CGLayerKit called back with no connection
+error	16:04:55.609363-0700	ContextStoreAgent	Simulating crash. Reason: <private>
+error	16:04:55.609417-0700	ContextStoreAgent	Simulating crash. Reason: <private>
+error	16:04:55.708897-0700	WindowServer	CGLayerKit called back with no connection
+error	16:04:55.709054-0700	WindowServer	CGLayerKit called back with no connection
+error	16:04:56.285572-0700	bluetoothd	stopTrackingForSession: sensor tracking is not supported on this platform
+error	16:04:56.286179-0700	bluetoothd	stopTrackingForSession: sensor tracking is not supported on this platform
