@@ -14,11 +14,14 @@ Handwriting USDA files to show a sphere. A python script to generate several of 
 
 ## Part 2
 
-More "correctly" adding a color with a material. 
+<https://www.whynotestflight.com/excuses/hello-usd-part-2-type-the-rainbow/>
 
 ## Part 3
 
-Official libraries 101, decompressing a Reality Composer file. 
+<https://www.whynotestflight.com/excuses/hello-usd-part-3-reality-composer-is-my-usd-wysiwig/>
 
-Scratch pad for learning how to work with USD files
+
+# Part 4 Getting Apple & Pixar python resources to work
+
+
 
