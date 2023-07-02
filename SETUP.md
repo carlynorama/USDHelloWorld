@@ -1,11 +1,11 @@
 # OpenUSD Pixar Library Set Up Instructions for MacOS
 
-Created 2023 07 01 for OpenUSD 23.05
-WIP
+WIP: Created 2023 07 01 for OpenUSD 23.05
 
-Assumes homebrew installed and MacOS 11 or later. 
 
 ## Install Steps
+
+CMake is required. `brew install cmake` if Homebrew is installed. 
 
 ### C++ tools only
 
@@ -13,8 +13,7 @@ Tested with with Python 3.11 on MacOS 13.4.1
 (Python is only used to run the build script.) 
 
 ```zsh
-# if haven't already
-# brew install cmake
+
 cd $DOWNLOAD_DIR
 git clone https://github.com/PixarAnimationStudios/OpenUSD.git
 # there will now be a directory called OpenUSD in the pwd
@@ -128,6 +127,8 @@ If you tested the python above and you are still in the same session the below s
 
 ## pyenv
 
+Install instructions with Homebrew
+
 ```sh
 brew install pyenv # and dependencies...
 pyenv install 3.9
@@ -164,4 +165,3 @@ cd $DIRECTORY_WITH_CLONED_REPO
 python3 OpenUSD/build_scripts/build_usd.py $BUILD_DESTINATION 
 ```
 
-### homebrew
