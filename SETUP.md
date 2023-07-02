@@ -51,7 +51,7 @@ python3 OpenUSD/build_scripts/build_usd.py $BUILD_DESTINATION
 
 Example script to set up the environment. 
 
-Save this file as OpenUSDLauncher.command and put it in your build folder. Don't forget to `chmod 755 OpenUSDLauncher.command`
+Save this file as `$BUILD_DESTINATION/OpenUSDLauncher.command`,  Don't forget to `chmod 755 OpenUSDLauncher.command`
 
 When using that build of OpenUSD, launch the shell by double clicking on the file.
 
@@ -108,7 +108,7 @@ env
 
 Open repl in shell (`python3`) and type the following line by line (from <https://openusd.org/release/tut_helloworld.html>)
 
-You should be in a directory where the user has permission to save. 
+Must be executed in a directory where the user has permission to save. 
 
 ```python
 from pxr import Usd, UsdGeom #This is the hard one... 
@@ -121,7 +121,7 @@ stage.GetRootLayer().Save()
 
 ### Check usdview
 
-If you tested the python above and you are still in the same session the below should launch `usdview` and display a Sphere in the render window. 
+If following directly the REPL check in the same shell session the below should launch `usdview` and display a Sphere in the render window.  `usdview` takes one argument, a valid usd, usdc, usda or usdz file.
 
 `usdview HelloWorld.usda`
 
