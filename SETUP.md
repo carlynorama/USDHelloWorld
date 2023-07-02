@@ -129,6 +129,8 @@ If you tested the python above and you are still in the same session the below s
 
 ## pyenv
 
+<https://github.com/pyenv/pyenv>
+
 Install instructions with Homebrew
 
 ```sh
