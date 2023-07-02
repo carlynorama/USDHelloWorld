@@ -1,5 +1,7 @@
 # USDHelloWorld
 
+Repo for learning about the USD file format.
+
 ## Part 1
 
 Handwriting USDA files to show a sphere. A python script to generate several of multiple colors.
@@ -21,7 +23,16 @@ Handwriting USDA files to show a sphere. A python script to generate several of 
 <https://www.whynotestflight.com/excuses/hello-usd-part-3-reality-composer-is-my-usd-wysiwig/>
 
 
-# Part 4 Getting Apple & Pixar python resources to work
+# Part 4 
+
+<https://www.whynotestflight.com/excuses/hello-usd-part-4-python-setup/>
+
+
+# Part 5
+
+getting `usdview` to work - pending
+
+
 
 
 

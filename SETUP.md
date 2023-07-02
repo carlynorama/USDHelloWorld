@@ -1,0 +1,167 @@
+# OpenUSD Pixar Library Set Up Instructions for MacOS
+
+Created 2023 07 01 for OpenUSD 23.05
+WIP
+
+Assumes homebrew installed and MacOS 11 or later. 
+
+## Install Steps
+
+### C++ tools only
+
+Tested with with Python 3.11 on MacOS 13.4.1
+(Python is only used to run the build script.) 
+
+```zsh
+# if haven't already
+# brew install cmake
+cd $DOWNLOAD_DIR
+git clone https://github.com/PixarAnimationStudios/OpenUSD.git
+# there will now be a directory called OpenUSD in the pwd
+# the below will show the build options
+python3 USD/build_scripts/build_usd.py
+# run with the --no-python option
+python3 USD/build_scripts/build_usd.py --no-python $BUILD_DEST_DIR
+```
+
+### Python, no usdview
+
+Tested successfully with Python 3.9 on MacOS 13.4.1
+
+```zsh
+git clone https://github.com/PixarAnimationStudios/USD.git
+# there will now be a directory called OpenUSD in the pwd
+python3 OpenUSD/build_scripts/build_usd.py --no-usdview $BUILD_DESTINATION
+```
+
+### Python, usdview
+
+Tested successfully with Python 3.9 on MacOS 13.4.1
+
+```zsh
+pip3 install PyOpenGL
+pip3 install PySide6==6.4.3 # <- Bug in USD 23.05 PySide6 >= 6.5.0 
+git clone https://github.com/PixarAnimationStudios/OpenUSD.git
+# there will now be a directory called OpenUSD in the pwd
+python3 OpenUSD/build_scripts/build_usd.py $BUILD_DESTINATION
+```
+
+## Set Up Envionment
+
+Example script to set up the environment. 
+
+Save this file as OpenUSDLauncher.command and put it in your build folder. Don't forget to `chmod 755 OpenUSDLauncher.command`
+
+When using that build of OpenUSD, launch the shell by double clicking on the file.
+
+Alternatively remove `$SHELL` at the bottom of the file, save it as `OpenUSDLauncher.sh` and run it with `. ./OpenUSDLauncher.sh` (if pwd is the build directory.)
+
+```sh
+#!/bin/sh
+
+## WHICH PYTHON
+
+## Uncomment below if using pyenv to manage python version
+# export PYENV_VERSION=3.9
+
+## Uncomment below if using system installed python
+# PATH="/Library/Frameworks/Python.framework/Versions/3.9/bin:${PATH}"
+# export PATH
+
+
+## WHICH PATH
+
+## If script lives in the build folder the below will work.
+BASEPATH=$(dirname "$0")
+export PATH=$PATH:$BASEPATH/bin;
+export PYTHONPATH=$PYTHONPATH:$BASEPATH/lib/python
+
+## For use if script does not live in build folder. 
+# BUILD_DESTINATION=/must/be/set
+# export PATH=$PATH:$BUILD_DESTINATION/bin;
+# export PYTHONPATH=$PYTHONPATH:$BUILD_DESTINATION/lib/python
+
+## CONFIRMING ENVIRONMENT
+## uncomment if desired. 
+# env
+
+## LAUNCH THE SHELL
+$SHELL
+
+```
+
+## Verifying / Testing
+
+### Checking the environment
+
+```sh
+which python3
+python3 --version
+echo $PATH
+echo $PYTHONPATH
+env
+
+```
+
+### Simple python test
+
+Open repl in shell (`python3`) and type the following line by line (from <https://openusd.org/release/tut_helloworld.html>)
+
+You should be in a directory where the user has permission to save. 
+
+```python
+from pxr import Usd, UsdGeom #This is the hard one... 
+stage = Usd.Stage.CreateNew('HelloWorld.usda') 
+xformPrim = UsdGeom.Xform.Define(stage, '/hello') 
+spherePrim = UsdGeom.Sphere.Define(stage, '/hello/world') 
+stage.GetRootLayer().Save()
+# Cntrl-D to leave
+```
+
+### Check usdview
+
+If you tested the python above and you are still in the same session the below should launch `usdview` and display a Sphere in the render window. 
+
+`usdview HelloWorld.usda`
+
+# Tips on using different version of Python
+
+## pyenv
+
+```sh
+brew install pyenv # and dependencies...
+pyenv install 3.9
+pyenv init #to get instructions on how to configure your shell
+# follow instructions and relaunch shell
+```
+
+If using zsh as default shell the instructions will be 
+
+```sh
+# Load pyenv automatically by appending
+# the following to 
+# ~/.zprofile (for login shells)
+# and ~/.zshrc (for interactive shells) :
+
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+# Restart your shell for the changes to take effect.
+```
+
+This means pyenv will take over managing Python in every zsh shell.
+
+To then use pyenv, one choice is to call it at the beginning of any shell process, for example:
+
+```
+pyenv shell 3.9
+python3 --version # expected: 3.9.17
+which pip3 #expected: /Users/$USER/.pyenv/shims/pip3
+pip3 install PyOpenGL #if prompted to update pip, go ahead.
+pip3 install PySide6
+cd $DIRECTORY_WITH_CLONED_REPO
+python3 OpenUSD/build_scripts/build_usd.py $BUILD_DESTINATION 
+```
+
+### homebrew
