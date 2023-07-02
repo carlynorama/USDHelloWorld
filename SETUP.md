@@ -32,6 +32,7 @@ git clone https://github.com/PixarAnimationStudios/USD.git
 # there will now be a directory called OpenUSD in the pwd
 python3 OpenUSD/build_scripts/build_usd.py --no-usdview $BUILD_DESTINATION
 ```
+TODO: Does this also need numpy? 
 
 ### Python, usdview
 
@@ -40,6 +41,7 @@ Tested successfully with Python 3.9 on MacOS 13.4.1
 ```zsh
 pip3 install PyOpenGL
 pip3 install PySide6==6.4.3 # <- Bug in USD 23.05 PySide6 >= 6.5.0 
+pip3 install numpy # <- USDView asks for this later
 git clone https://github.com/PixarAnimationStudios/OpenUSD.git
 # there will now be a directory called OpenUSD in the pwd
 python3 OpenUSD/build_scripts/build_usd.py $BUILD_DESTINATION
