@@ -55,7 +55,7 @@ Save this file as OpenUSDLauncher.command and put it in your build folder. Don't
 
 When using that build of OpenUSD, launch the shell by double clicking on the file.
 
-Alternatively remove `$SHELL` at the bottom of the file, save it as `OpenUSDLauncher.sh` and run it with `. ./OpenUSDLauncher.sh` (if pwd is the build directory.)
+Alternatively remove `$SHELL` at the bottom of the file, save it as `OpenUSDLauncher.sh` and run it with `. ./OpenUSDLauncher.sh` (if pwd is the script's directory.)
 
 ```sh
 #!/bin/sh
