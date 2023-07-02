@@ -1,6 +1,8 @@
 # USDHelloWorld
 
-Repo for learning about the USD file format.
+Support files for learning about the USD file format. 
+
+See SETUP.md for install instructions
 
 ## Part 1
 
