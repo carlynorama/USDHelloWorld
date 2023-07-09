@@ -36,3 +36,14 @@ or also ```swiftc `find . -name "*.swift" -maxdepth 1` -o myappname``` where
 the result will be a new item, an executable, in the file directory which can then be run via the command line with `./myappname`
 
 ```otool -L ./myappname``` will print to the console all the libraries that the Linker believes are used of your app. This swiftc compile by default is a dynamic compile  (vs static) so this is a lookup table. The files have not been copied into the app directory. `swiftc -static-executable` when compiling will do a static compile instead (if compiling for a non-Apple platform). 
+
+
+---
+
+Stage does not specify an upAxis. (fails 'StageMetadataChecker')
+Stage does not specify its linear scale in metersPerUnit. (fails 'StageMetadataChecker')
+Stage has missing or invalid defaultPrim. (fails 'StageMetadataChecker')
+Failed!
+
+usdchecker sphere_base.usd
+usdchecker multiball.usda 
