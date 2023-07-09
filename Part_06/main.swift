@@ -18,7 +18,7 @@ import Foundation
 
 @StringBuilder func  makeMultiBall(count:Int) -> String {
     let builder = USDAFileBuilder()
-    builder.header
+    builder.generateHeader(defaultPrim:"blueSphere")
     builder.buildItem("blueSphere", "sphere_base", "sphere", 0, 0, 0, 1, 0, 0, 1)
 
     for i in (0...count) {
@@ -67,7 +67,6 @@ switch (inputArgs.count) {
 }
 
 print("\(count), \(fileName)")
-USDAFileBuilder.testPrint() 
 let usdFileText = makeMultiBall(count: count)
 let fileURL = URL(filePath: fileName)
 

@@ -1,7 +1,13 @@
 struct USDAFileBuilder {
-let header = "#usda 1.0\n"
-static func testPrint() {
-    print("I see you.")
+@StringBuilder func generateHeader(defaultPrim:String, metersPerUnit:Double = 1, upAxis:String = "Y", documentationNote:String? = nil) -> String {
+    "#usda 1.0\n("
+    "\tdefaultPrim = \"\(defaultPrim)\""
+    "\tmetersPerUnit = \(metersPerUnit)"
+    "\tupAxis = \"\(upAxis)\""
+    if let documentationNote {
+        "doc = \"\(documentationNote)\""
+    }
+    ")"
 }
 
 func translateString(_ xoffset:Double, _ yoffset:Double, _ zoffset:Double) -> String {
