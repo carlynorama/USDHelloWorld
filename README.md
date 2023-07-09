@@ -35,6 +35,10 @@ Handwriting USDA files to show a sphere. A python script to generate several of 
 <https://www.whynotestflight.com/excuses/hello-usd-part-5-python-setup-pt-2-what-really-works/>
 getting `usdview` to work - super rush job. many typos.
 
+# Part 6
+
+
+
 
 
 
