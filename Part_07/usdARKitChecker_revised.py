@@ -22,15 +22,40 @@ def runValidators(filename, verboseOutput, errorData):
             skipARKitRootLayerCheck=False, rootPackageOnly=False, 
             skipVariants=False, verbose=verboseOutput) #<- changed to pass verboseOutput through
 
+    
     checker.CheckCompliance(filename)
+
+    if verboseOutput:
+        print("Rules Being Checked by usdchecker:")
+        # checker.DumpAllRules() line failed with error: 
+        # for ruleNum, rule in enumerate(GetBaseRules()):   
+        # NameError: name 'GetBaseRules' is not defined
+        for rule in checker._rules:
+            print(rule)
+        print("-----")
+
     errors = checker.GetErrors()
     failedChecks = checker.GetFailedChecks()
+    warnings = checker.GetWarnings()
+    
+    if verboseOutput:
+        for warning in warnings:
+            print(warning)
+        for error in errors:
+            print(error)
+        for failure in failedChecks:
+            print(failure)
+        print("-----")
     for rule in checker._rules:
         error = rule.__class__.__name__
         failures = rule.GetFailedChecks()
         if len(failures) > 0:
             errorData.append({ "code": "PXR_" + error })
             errors.append(error)
+    if verboseOutput:
+        print("Will be exported to outErrorList")
+        print(errorData)
+        print("----")
 
     usdCheckerResult = len(errors) == 0
     mdlValidation = validateFile(filename, verboseOutput, errorData)
