@@ -3,7 +3,6 @@
 	defaultPrim = "blueSphere"
 	metersPerUnit = 1.0
 	upAxis = "Y"
-
 )
 
 over "blueSphere" (
