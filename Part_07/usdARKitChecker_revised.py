@@ -6,6 +6,7 @@ from pxr import *
 from validateMesh import validateMesh
 from validateMaterial import validateMaterial
 
+## No changes
 def validateFile(file, verbose, errorData):
     stage = Usd.Stage.Open(file)
     success = True
@@ -17,6 +18,7 @@ def validateFile(file, verbose, errorData):
             success = validateMaterial(prim, verbose, errorData) and success
     return success
 
+## More verbose verbose mode
 def runValidators(filename, verboseOutput, errorData):
     checker = UsdUtils.ComplianceChecker(arkit=True, 
             skipARKitRootLayerCheck=False, rootPackageOnly=False, 
@@ -63,6 +65,7 @@ def runValidators(filename, verboseOutput, errorData):
     success = usdCheckerResult and mdlValidation
     print("usdARKitChecker: " + ("[Pass]" if success else "[Fail]") + " " + filename)
 
+## No changes
 def main(argumentList, outErrorList=None):
     parser = argparse.ArgumentParser()
     parser.add_argument("--verbose", "-v", action='store_true', help="Verbose mode.")
