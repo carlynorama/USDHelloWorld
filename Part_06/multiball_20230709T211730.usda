@@ -1,0 +1,188 @@
+#usda 1.0
+(
+	defaultPrim = "blueSphere"
+	metersPerUnit = 1.0
+	upAxis = "Y"
+
+)
+
+over "blueSphere" (
+	prepend references = @./sphere_base.usd@
+)
+{
+
+	over "sphere"
+	{
+		color3f[] primvars:displayColor = [(0.0, 0.0, 1.0)]
+		double radius = 1.0
+	}
+}
+
+over "sphere_0" (
+	prepend references = @./sphere_base.usd@
+)
+{
+	double3 xformOp:translate = (2.99051865413199, 1.7896664560374358, -3.627476240345694)
+	uniform token[] xformOpOrder = ["xformOp:translate"]
+	over "sphere"
+	{
+		color3f[] primvars:displayColor = [(0.540461301689281, 0.0031366656472472387, 0.30943259439185844)]
+		double radius = 1.2861345279960499
+	}
+}
+
+over "sphere_1" (
+	prepend references = @./sphere_base.usd@
+)
+{
+	double3 xformOp:translate = (-0.8266522752771417, 0.6836534308386515, -1.940500113069846)
+	uniform token[] xformOpOrder = ["xformOp:translate"]
+	over "sphere"
+	{
+		color3f[] primvars:displayColor = [(0.6351024151605482, 0.37376172751974013, 0.5481357633451068)]
+		double radius = 1.3496395102448426
+	}
+}
+
+over "sphere_2" (
+	prepend references = @./sphere_base.usd@
+)
+{
+	double3 xformOp:translate = (3.842771221540171, 1.9213663969358992, -1.719361277856546)
+	uniform token[] xformOpOrder = ["xformOp:translate"]
+	over "sphere"
+	{
+		color3f[] primvars:displayColor = [(0.6467720385540954, 0.8285997005574178, 0.48671419168132846)]
+		double radius = 1.5241069156054314
+	}
+}
+
+over "sphere_3" (
+	prepend references = @./sphere_base.usd@
+)
+{
+	double3 xformOp:translate = (1.9163288027697742, -1.951664588994344, -1.9103147817135087)
+	uniform token[] xformOpOrder = ["xformOp:translate"]
+	over "sphere"
+	{
+		color3f[] primvars:displayColor = [(0.4436831357684131, 0.9096285643002376, 0.630906691567249)]
+		double radius = 1.5810734040343255
+	}
+}
+
+over "sphere_4" (
+	prepend references = @./sphere_base.usd@
+)
+{
+	double3 xformOp:translate = (-0.9347610280045648, -1.2118493943821642, 0.22171444445751032)
+	uniform token[] xformOpOrder = ["xformOp:translate"]
+	over "sphere"
+	{
+		color3f[] primvars:displayColor = [(0.5152087171997709, 0.00507110252545806, 0.003313604924496838)]
+		double radius = 1.4788109268557275
+	}
+}
+
+over "sphere_5" (
+	prepend references = @./sphere_base.usd@
+)
+{
+	double3 xformOp:translate = (-0.028173909340307723, 0.8623105522940424, -3.1419238018797815)
+	uniform token[] xformOpOrder = ["xformOp:translate"]
+	over "sphere"
+	{
+		color3f[] primvars:displayColor = [(0.626357746496028, 0.5287143961067826, 0.8931951419962858)]
+		double radius = 1.4296454140027537
+	}
+}
+
+over "sphere_6" (
+	prepend references = @./sphere_base.usd@
+)
+{
+	double3 xformOp:translate = (-0.789782702070938, 3.7860137028958416, -1.0343259056550957)
+	uniform token[] xformOpOrder = ["xformOp:translate"]
+	over "sphere"
+	{
+		color3f[] primvars:displayColor = [(0.3978680810359455, 0.7123752618167042, 0.11760323153595797)]
+		double radius = 1.2844219606694307
+	}
+}
+
+over "sphere_7" (
+	prepend references = @./sphere_base.usd@
+)
+{
+	double3 xformOp:translate = (-0.8776005006667482, -0.9610834274588189, 2.5343814086904892)
+	uniform token[] xformOpOrder = ["xformOp:translate"]
+	over "sphere"
+	{
+		color3f[] primvars:displayColor = [(0.4422768889437835, 0.5097604316333901, 0.760911980122063)]
+		double radius = 1.7491451131079678
+	}
+}
+
+over "sphere_8" (
+	prepend references = @./sphere_base.usd@
+)
+{
+	double3 xformOp:translate = (1.2771504663021078, -2.1167573854271984, -3.753392352618051)
+	uniform token[] xformOpOrder = ["xformOp:translate"]
+	over "sphere"
+	{
+		color3f[] primvars:displayColor = [(0.7089380549924766, 0.9412044723648219, 0.5167926231995013)]
+		double radius = 1.820126444773887
+	}
+}
+
+over "sphere_9" (
+	prepend references = @./sphere_base.usd@
+)
+{
+	double3 xformOp:translate = (-0.9981728933520602, 3.059002759093585, -3.1482444501047855)
+	uniform token[] xformOpOrder = ["xformOp:translate"]
+	over "sphere"
+	{
+		color3f[] primvars:displayColor = [(0.19058646927705436, 0.35134720200080416, 0.28495475191156683)]
+		double radius = 1.673921705883458
+	}
+}
+
+over "sphere_10" (
+	prepend references = @./sphere_base.usd@
+)
+{
+	double3 xformOp:translate = (2.5325479148549617, -3.155818409270152, -1.3492526193015522)
+	uniform token[] xformOpOrder = ["xformOp:translate"]
+	over "sphere"
+	{
+		color3f[] primvars:displayColor = [(0.3805093343608634, 0.1713451616382744, 0.6600164524082989)]
+		double radius = 1.0732980153189984
+	}
+}
+
+over "sphere_11" (
+	prepend references = @./sphere_base.usd@
+)
+{
+	double3 xformOp:translate = (1.7937803439962803, 0.969578965191638, 0.09774784119451319)
+	uniform token[] xformOpOrder = ["xformOp:translate"]
+	over "sphere"
+	{
+		color3f[] primvars:displayColor = [(0.624345632982793, 0.0947985344695148, 0.320542003801526)]
+		double radius = 1.2123750051784308
+	}
+}
+
+over "sphere_12" (
+	prepend references = @./sphere_base.usd@
+)
+{
+	double3 xformOp:translate = (-0.38890842222635325, -0.8917701948799053, 0.8277309562427133)
+	uniform token[] xformOpOrder = ["xformOp:translate"]
+	over "sphere"
+	{
+		color3f[] primvars:displayColor = [(0.3176988447464344, 0.7795189560928659, 0.42990062155875985)]
+		double radius = 1.5376405759473104
+	}
+}

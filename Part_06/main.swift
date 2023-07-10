@@ -9,12 +9,13 @@ let maxRadius = 2.0
 
 import Foundation
 
-// @StringBuilder func testStringBuilder(_ count:Int) -> String {
-//     for i in (0...count).reversed() {
-//         "\(i)…"
-//     }
-//     "String Made!"
-// }
+func timeStampForFile() -> String {
+    //Date.now.ISO8601Format()
+    let date = Date.now
+    let formatter = DateFormatter()
+    formatter.dateFormat = "yyyyMMdd'T'HHmmss"
+    return formatter.string(from: date)
+}
 
 @StringBuilder func  makeMultiBall(count:Int) -> String {
     let builder = USDAFileBuilder()
@@ -48,7 +49,7 @@ let inputArgs = CommandLine.arguments.dropFirst()
 print("Number of arguments:", inputArgs.count)
 
 var count:Int = 12
-var fileName:String = "multiball.usda"
+var fileName:String = "multiball_\(timeStampForFile()).usda"
 
 switch (inputArgs.count) {
     case 1:
@@ -75,11 +76,3 @@ do {
 } catch { 
     print(error)
 }
-
-
-// /// reading lines from the standard input
-// print("Please enter your input:")
-// guard let input = readLine(strippingNewline: true) else {
-//     fatalError("Missing input")
-// }
-// print(input)
