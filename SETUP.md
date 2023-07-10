@@ -125,6 +125,12 @@ If following directly the REPL check in the same shell session the below should 
 
 `usdview HelloWorld.usda`
 
+# USDZ Tools
+
+The USDZ scripts work better when run using a fresh build of the Pixar tools in the path instead of the included build and then running the script with that build's preferred python explicitly: e.g. `python3 /Applications/usdpython/usdzconvert/usdARKitChecker -v three_d_thing.usda`
+
+TODO: Boost may have to be updated/altered to get all of the samples to run. What is the PIL module? 
+
 # Tips on using different version of Python
 
 ## pyenv
