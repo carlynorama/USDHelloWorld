@@ -1,3 +1,5 @@
+import Foundation
+
 let minX = -4.0
 let maxX = 4.0
 let minY = minX
@@ -6,8 +8,6 @@ let minZ = minX
 let maxZ = maxX
 let minRadius = 0.8
 let maxRadius = 2.0
-
-import Foundation
 
 func timeStampForFile() -> String {
     //Date.now.ISO8601Format()
