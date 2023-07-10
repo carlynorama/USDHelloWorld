@@ -38,9 +38,11 @@ def runValidators(filename, verboseOutput, errorData):
 
     errors = checker.GetErrors()
     failedChecks = checker.GetFailedChecks()
-    warnings = checker.GetWarnings()
+    
     
     if verboseOutput:
+        ## only needed in verbose mode.
+        warnings = checker.GetWarnings()
         for warning in warnings:
             print(warning)
         for error in errors:
