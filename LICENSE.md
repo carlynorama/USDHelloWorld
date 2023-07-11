@@ -1,7 +1,7 @@
 
 ## Original Code
 
-Out of deference to Pixar Apache 2.0 - same as OpenUSD (see below)
+Out of deference to Pixar, Apache 2.0 - same as OpenUSD (see below)
 
 ## My writing
 
