@@ -14,4 +14,4 @@ Other Included Code: Subfolder may contain
 
 ## Other Code
 
-Some directories may have additional license files if substances amount of code from another party are included (e.g., Part_07 and a code written by Apple)
+Some directories may have additional license files if licensed code from another party are included (e.g., Part_07 and a code written by Apple)
