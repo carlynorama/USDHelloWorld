@@ -21,3 +21,5 @@ See SETUP.md for install instructions for the Pixar library and mention of USDZ 
 - https://openusd.org/release/index.html
 - https://github.com/PixarAnimationStudios/OpenUSD
 - https://x3dgraphics.com/slidesets/X3dForWebAuthors/Chapter05AppearanceMaterialTextures.pdf
+- https://openusd.org/release/api/usd_page_front.html>
+- https://openusd.org/release/api/_usd__page__properties_of_scene_description.html#Usd_PrimSpecifiers
