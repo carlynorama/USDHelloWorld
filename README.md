@@ -1,5 +1,7 @@
 # USDHelloWorld
 
+Repo for learning about the OpenUSD "fileformat". 
+
 ## Misc References
 - Understand USD Fundamentals, WWDC22, https://developer.apple.com/videos/play/wwdc2022/10129/
 - https://openusd.org/release/index.html
@@ -8,6 +10,13 @@
 - https://openusd.org/release/api/usd_page_front.html>
 - https://openusd.org/release/api/_usd__page__properties_of_scene_description.html#Usd_PrimSpecifiers
 - <https://docs.omniverse.nvidia.com/prod_usd/prod_kit/dev_usd/quick-start/api.html>
+
+## Misc Tips
+
+Gotcha's that got me:
+
+- Swift `UUID()` is too long to be a prim identifier.
+- ARKit compliant usd files must be a single usdc file or a usdz archive that contains a single usdc file (plus assets).
 
 
 ## In This Repo
@@ -18,7 +27,14 @@ See SETUP.md for install instructions for the Pixar library and mention of USDZ 
 
 ### examples
 
-Files pulled from `explorations` that are good exemplars of a learned concept. 
+.usda files pulled from `explorations` that are good exemplars of a learned concept. 
+
+All of these examples pass `usdchecker` but NONE will pass `usdchecker --arkit` because none of them are usdc files. 
+
+`usdcat -o output_test_2.usdc --flatten $USDA_ROOT_FILE_PATH_WITH_EXT`
+
+Will make many of them pass so far.
+
 
 ### explorations
 
