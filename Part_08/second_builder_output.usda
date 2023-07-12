@@ -1,0 +1,23 @@
+#usda 1.0
+(
+        defaultPrim = "0F4F39CF-4B08-4BB8-ADF3-EF31098F3A15"
+        metersPerUnit = 1
+        upAxis = "Y"
+
+)
+def Xform "0F4F39CF-4B08-4BB8-ADF3-EF31098F3A15"
+{
+        def Sphere "sphere_0F4F39CF-4B08-4BB8-ADF3-EF31098F3A15"
+        {
+                float3[] extent = [(-1.0, -1.0, -1.0), (1.0, 1.0, 1.0)]
+                double radius = 1.0
+        }
+}
+def Xform "8E3CC492-6B9B-42A1-8A7F-152071F4E3AC"
+{
+        def Sphere "sphere_8E3CC492-6B9B-42A1-8A7F-152071F4E3AC"
+        {
+                float3[] extent = [(-0.5, -0.5, -0.5), (0.5, 0.5, 0.5)]
+                double radius = 0.5
+        }
+}

@@ -1,0 +1,29 @@
+#usda 1.0
+(
+        defaultPrim = "48BBF0D4-6947-412F-9EA4-1AE3FFB877A3"
+        metersPerUnit = 1
+        upAxis = "Y"
+
+)
+def Xform "48BBF0D4-6947-412F-9EA4-1AE3FFB877A3"
+{
+        def Sphere "sphere"
+        {
+                float3[] extent = [(-1.0, -1.0, -1.0), (1.0, 1.0, 1.0)]
+                double radius = 1.0
+        }
+}
+def Xform "4FBA3302-212F-4868-ACD6-4CB665A6457E"
+{
+        def Sphere "sphere"
+        {
+                float3[] extent = [(-0.5, -0.5, -0.5), (0.5, 0.5, 0.5)]
+                double radius = 0.5
+        }
+}
+
+# '
+# 	Error in 'textFileFormatYyerror' at line 3162 in file pxr/usd/sdf/textFileFormat.yy : 'Duplicate prim '' at '"sphere"' in <> on line 10 in file /Users/labtanza/Developer/GitHub/SketchPad/first_builder_output.usda
+# '
+# 	Error in 'textFileFormatYyerror' at line 3162 in file pxr/usd/sdf/textFileFormat.yy : 'attribute '' already has type 'Sphere', cannot change to 'double' at '=' in <> on line 13 in file /Users/labtanza/Developer/GitHub/SketchPad/first_builder_output.usda
+# '
