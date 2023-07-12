@@ -1,0 +1,58 @@
+#usda 1.0
+(
+	defaultPrim = "blueSphere"
+	metersPerUnit = 1.0
+	upAxis = "Y"
+
+)
+
+over "blueSphere" (
+	prepend references = @./sphere_base.usd@
+)
+{
+
+	over "sphere"
+	{
+		color3f[] primvars:displayColor = [(0.0, 0.0, 1.0)]
+		double radius = 1.0
+	}
+}
+
+over "sphere_0" (
+	prepend references = @./sphere_base.usd@
+)
+{
+	double3 xformOp:translate = (2.2359939072354296, -1.4725728980934232, 0.16823784046484036)
+	uniform token[] xformOpOrder = ["xformOp:translate"]
+	over "sphere"
+	{
+		color3f[] primvars:displayColor = [(0.3836322158110598, 0.7184460249131174, 0.4813091904442113)]
+		double radius = 0.8350861360009422
+	}
+}
+
+over "sphere_1" (
+	prepend references = @./sphere_base.usd@
+)
+{
+	double3 xformOp:translate = (-0.9232932575629915, -0.9227673855069787, -2.913416479996651)
+	uniform token[] xformOpOrder = ["xformOp:translate"]
+	over "sphere"
+	{
+		color3f[] primvars:displayColor = [(0.015753196967261296, 0.5635536732505478, 0.879734518911402)]
+		double radius = 1.9517104371949667
+	}
+}
+
+over "sphere_2" (
+	prepend references = @./sphere_base.usd@
+)
+{
+	double3 xformOp:translate = (-0.3492242979304008, -1.7307812739030988, 2.1654569465637428)
+	uniform token[] xformOpOrder = ["xformOp:translate"]
+	over "sphere"
+	{
+		color3f[] primvars:displayColor = [(0.41862323398554413, 0.8398376822528378, 0.10420422907621907)]
+		double radius = 1.109464535809663
+	}
+}
