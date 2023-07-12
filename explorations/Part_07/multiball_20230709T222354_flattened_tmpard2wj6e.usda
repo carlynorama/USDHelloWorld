@@ -1,0 +1,191 @@
+#usda 1.0
+(
+    defaultPrim = "blueSphere"
+    doc = """Generated from Composed Stage of root layer /Users/labtanza/Developer/GitHub/USDHelloWorld/Part_06/multiball_20230709T222354.usda
+"""
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "blueSphere"
+{
+    double3 xformOp:translate = (0, 0, 0)
+    uniform token[] xformOpOrder = ["xformOp:translate"]
+
+    def Sphere "sphere"
+    {
+        float3[] extent = [(-2, -2, -2), (2, 2, 2)]
+        color3f[] primvars:displayColor = [(0, 0, 1)]
+        double radius = 1
+    }
+}
+
+def Xform "sphere_0"
+{
+    double3 xformOp:translate = (-1.184153285968514, -3.647033671109095, -3.7641420584021335)
+    uniform token[] xformOpOrder = ["xformOp:translate"]
+
+    def Sphere "sphere"
+    {
+        float3[] extent = [(-2, -2, -2), (2, 2, 2)]
+        color3f[] primvars:displayColor = [(0.16205418, 0.573456, 0.38217705)]
+        double radius = 1.4002723309372764
+    }
+}
+
+def Xform "sphere_1"
+{
+    double3 xformOp:translate = (-0.5261383868331437, 3.132048637184454, -0.44706351337151684)
+    uniform token[] xformOpOrder = ["xformOp:translate"]
+
+    def Sphere "sphere"
+    {
+        float3[] extent = [(-2, -2, -2), (2, 2, 2)]
+        color3f[] primvars:displayColor = [(0.7178611, 0.26731765, 0.2773634)]
+        double radius = 1.6608855195133203
+    }
+}
+
+def Xform "sphere_2"
+{
+    double3 xformOp:translate = (2.696991757170985, -2.741134838471454, 2.2709444095213973)
+    uniform token[] xformOpOrder = ["xformOp:translate"]
+
+    def Sphere "sphere"
+    {
+        float3[] extent = [(-2, -2, -2), (2, 2, 2)]
+        color3f[] primvars:displayColor = [(0.94980425, 0.9570185, 0.78206)]
+        double radius = 1.7846037873381584
+    }
+}
+
+def Xform "sphere_3"
+{
+    double3 xformOp:translate = (-1.0308012065228462, 0.45496116972412803, 2.1602285177573757)
+    uniform token[] xformOpOrder = ["xformOp:translate"]
+
+    def Sphere "sphere"
+    {
+        float3[] extent = [(-2, -2, -2), (2, 2, 2)]
+        color3f[] primvars:displayColor = [(0.7291305, 0.07002904, 0.77673054)]
+        double radius = 1.697103659651786
+    }
+}
+
+def Xform "sphere_4"
+{
+    double3 xformOp:translate = (1.083654492166584, 3.495198151700426, 3.001139568538912)
+    uniform token[] xformOpOrder = ["xformOp:translate"]
+
+    def Sphere "sphere"
+    {
+        float3[] extent = [(-2, -2, -2), (2, 2, 2)]
+        color3f[] primvars:displayColor = [(0.19330187, 0.5521788, 0.6234825)]
+        double radius = 1.9267084402944623
+    }
+}
+
+def Xform "sphere_5"
+{
+    double3 xformOp:translate = (-0.7130466964579423, -1.6967393634184456, -2.8650597646849745)
+    uniform token[] xformOpOrder = ["xformOp:translate"]
+
+    def Sphere "sphere"
+    {
+        float3[] extent = [(-2, -2, -2), (2, 2, 2)]
+        color3f[] primvars:displayColor = [(0.40969232, 0.3848699, 0.38478112)]
+        double radius = 1.5136302027051698
+    }
+}
+
+def Xform "sphere_6"
+{
+    double3 xformOp:translate = (2.114100481739248, -1.2331921314814318, 2.9210878637892135)
+    uniform token[] xformOpOrder = ["xformOp:translate"]
+
+    def Sphere "sphere"
+    {
+        float3[] extent = [(-2, -2, -2), (2, 2, 2)]
+        color3f[] primvars:displayColor = [(0.4237717, 0.8944821, 0.8387198)]
+        double radius = 0.996100383889179
+    }
+}
+
+def Xform "sphere_7"
+{
+    double3 xformOp:translate = (0.6139729851730387, -2.1636073894804015, -1.2448903303953696)
+    uniform token[] xformOpOrder = ["xformOp:translate"]
+
+    def Sphere "sphere"
+    {
+        float3[] extent = [(-2, -2, -2), (2, 2, 2)]
+        color3f[] primvars:displayColor = [(0.7496581, 0.6634379, 0.50053257)]
+        double radius = 1.019717277295782
+    }
+}
+
+def Xform "sphere_8"
+{
+    double3 xformOp:translate = (1.8976158439642976, 2.6610769940080488, -2.983000650753242)
+    uniform token[] xformOpOrder = ["xformOp:translate"]
+
+    def Sphere "sphere"
+    {
+        float3[] extent = [(-2, -2, -2), (2, 2, 2)]
+        color3f[] primvars:displayColor = [(0.40540767, 0.3829469, 0.8038967)]
+        double radius = 1.0486640607196256
+    }
+}
+
+def Xform "sphere_9"
+{
+    double3 xformOp:translate = (1.7544553609781461, 3.6112312528391275, -1.0795222118663084)
+    uniform token[] xformOpOrder = ["xformOp:translate"]
+
+    def Sphere "sphere"
+    {
+        float3[] extent = [(-2, -2, -2), (2, 2, 2)]
+        color3f[] primvars:displayColor = [(0.36375576, 0.4873766, 0.26026088)]
+        double radius = 0.8077356270763054
+    }
+}
+
+def Xform "sphere_10"
+{
+    double3 xformOp:translate = (-3.1792781878340888, 0.6093081424155065, 2.663220325702283)
+    uniform token[] xformOpOrder = ["xformOp:translate"]
+
+    def Sphere "sphere"
+    {
+        float3[] extent = [(-2, -2, -2), (2, 2, 2)]
+        color3f[] primvars:displayColor = [(0.87990123, 0.7636616, 0.6611454)]
+        double radius = 1.2028816672373872
+    }
+}
+
+def Xform "sphere_11"
+{
+    double3 xformOp:translate = (-2.1455875292572246, -3.464486780123318, 3.4854264040544267)
+    uniform token[] xformOpOrder = ["xformOp:translate"]
+
+    def Sphere "sphere"
+    {
+        float3[] extent = [(-2, -2, -2), (2, 2, 2)]
+        color3f[] primvars:displayColor = [(0.58645576, 0.54808843, 0.6084428)]
+        double radius = 1.5136281018955642
+    }
+}
+
+def Xform "sphere_12"
+{
+    double3 xformOp:translate = (-2.720272864042377, 1.1241795502758443, 3.0341149159083036)
+    uniform token[] xformOpOrder = ["xformOp:translate"]
+
+    def Sphere "sphere"
+    {
+        float3[] extent = [(-2, -2, -2), (2, 2, 2)]
+        color3f[] primvars:displayColor = [(0.99088544, 0.83382183, 0.5439826)]
+        double radius = 0.9554204991635202
+    }
+}
+
