@@ -1,0 +1,26 @@
+#usda 1.0
+(
+	defaultPrim = "Sphere_18528"
+	metersPerUnit = 1
+	upAxis = "Y"
+
+)
+def Xform "Sphere_18528"
+{
+		double3 xformOp:translate = (3.0, 2.0, 5.0)
+		uniform token[] xformOpOrder = ["xformOp:translate"]
+	def Sphere "sphere_18528"
+	{
+		float3[] extent = [(-1.0, -1.0, -1.0), (1.0, 1.0, 1.0)]
+		double radius = 1.0
+	}
+}
+def Xform "Sphere_51059"
+{
+
+	def Sphere "sphere_51059"
+	{
+		float3[] extent = [(-0.5, -0.5, -0.5), (0.5, 0.5, 0.5)]
+		double radius = 0.5
+	}
+}
