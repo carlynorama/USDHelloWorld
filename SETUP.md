@@ -10,7 +10,7 @@ CMake is required. `brew install cmake` if Homebrew is installed.
 ### C++ tools only
 
 Tested with with Python 3.11 on MacOS 13.4.1
-(Python is only used to run the build script.) 
+(Python may only used to run the build script? TODO: Be sure.) 
 
 ```zsh
 
