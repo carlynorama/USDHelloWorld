@@ -7,6 +7,7 @@
 - https://x3dgraphics.com/slidesets/X3dForWebAuthors/Chapter05AppearanceMaterialTextures.pdf
 - https://openusd.org/release/api/usd_page_front.html>
 - https://openusd.org/release/api/_usd__page__properties_of_scene_description.html#Usd_PrimSpecifiers
+- <https://docs.omniverse.nvidia.com/prod_usd/prod_kit/dev_usd/quick-start/api.html>
 
 
 ## In This Repo
