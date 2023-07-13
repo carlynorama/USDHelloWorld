@@ -2,6 +2,9 @@
 
 WIP: Created 2023 07 01 for OpenUSD 23.05
 
+These are the instruction to install the full library from Pixar. If your language of choice will be python and you don't need every last feature try `pip install usd-core` instead.
+
+- <https://pypi.org/project/usd-core/>
 
 ## Install Steps
 
