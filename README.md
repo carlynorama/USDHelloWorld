@@ -4,6 +4,7 @@ Repo for learning about the OpenUSD "fileformat".
 
 ## Misc References
 - What is USD video with Aaron Luk: <https://www.youtube.com/watch?v=1RnTSZK9SwM>
+- <https://developer.nvidia.com/blog/universal-scene-description-as-the-language-of-the-metaverse/>
 - Understand USD Fundamentals, WWDC22, https://developer.apple.com/videos/play/wwdc2022/10129/
 - https://openusd.org/release/index.html
 - https://github.com/PixarAnimationStudios/OpenUSD
