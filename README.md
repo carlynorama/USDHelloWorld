@@ -19,7 +19,8 @@ Repo for learning about the OpenUSD "fileformat". A "Universal Scene Description
 
 ### NVIDIA
 - https://developer.nvidia.com/usd
-- What is USD video with Aaron Luk: <https://www.youtube.com/watch?v=1RnTSZK9SwM>
+- What is USD video: <https://www.youtube.com/watch?v=1RnTSZK9SwM>
+- Getting started USD: (39 minutes) <https://www.nvidia.com/en-us/on-demand/session/gtcspring23-s52054/>
 - Introduction to USD <https://www.nvidia.com/en-us/on-demand/session/gtcspring21-s33132/?playlistId=playList-911c5614-4b7f-4668-b9eb-37f627ac8d17>
 - Plumbing the Metaverse: <https://www.nvidia.com/en-us/on-demand/session/gtcspring21-s31946/>
 - <https://github.com/NVIDIA-Omniverse/USD-Tutorials-And-Examples>
