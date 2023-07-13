@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.1//EN" "http://www.web3d.org/specifications/x3d-3.1.dtd">
+<X3D profile="Immersive" version="3.1" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.1.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance">
+<head>
+
+
+	<meta content="13 Jul 2023" name="created"/>
+	<meta content="SketchPad" name="generator"/>
+</head>
+<Scene>
+
+<shape>
+	<appearance>
+<material diffuseColor='0.0 0.0 1.0'></material>
+	</appearance>
+	<sphere radius='1.0'></sphere>
+</shape>
+
+<transform translation='3.2028190973766124 1.8525461389116682 -0.634489573540753'>
+<shape>
+	<appearance>
+<material diffuseColor='0.44636255228520705 0.13254560039880436 0.6894812126664038'></material>
+	</appearance>
+	<sphere radius='1.577029121396873'></sphere>
+</shape>
+</transform>
+<transform translation='3.2251556230460743 -1.4386922862369556 -2.0067290743937924'>
+<shape>
+	<appearance>
+<material diffuseColor='0.1552577318213022 0.7214209152315514 0.44394687127996846'></material>
+	</appearance>
+	<sphere radius='1.8999774077239082'></sphere>
+</shape>
+</transform>
+<transform translation='0.361485993976153 0.33916727667685453 -0.4330152501392437'>
+<shape>
+	<appearance>
+<material diffuseColor='0.44927548884636936 0.6595656358223023 0.6609099445594907'></material>
+	</appearance>
+	<sphere radius='1.4488445814739426'></sphere>
+</shape>
+</transform>
+<transform translation='-1.963902482991359 -2.4357235787596823 1.3724108019050476'>
+<shape>
+	<appearance>
+<material diffuseColor='0.22111151381136984 0.3170208383536719 0.7595074949903952'></material>
+	</appearance>
+	<sphere radius='1.2715539544564152'></sphere>
+</shape>
+</transform>
+<transform translation='-2.310773244191256 -1.0694611399723746 2.0419960367806427'>
+<shape>
+	<appearance>
+<material diffuseColor='0.8042413402132883 0.6243588991269475 0.9505185944487776'></material>
+	</appearance>
+	<sphere radius='1.5469017954455027'></sphere>
+</shape>
+</transform>
+<transform translation='3.598265933214102 -0.05760985529236162 -2.7629598657193366'>
+<shape>
+	<appearance>
+<material diffuseColor='0.7737355840139851 0.07958134906504966 0.4804377625130891'></material>
+	</appearance>
+	<sphere radius='0.8168708233756241'></sphere>
+</shape>
+</transform>
+<transform translation='-0.5236708502420235 0.4099991763579611 -1.4773301974546218'>
+<shape>
+	<appearance>
+<material diffuseColor='0.3746389291125035 0.32198434893657835 0.6774098794874014'></material>
+	</appearance>
+	<sphere radius='1.6489795152883584'></sphere>
+</shape>
+</transform>
+<transform translation='0.8721377996183834 -0.6732281143563492 3.255623740354695'>
+<shape>
+	<appearance>
+<material diffuseColor='0.5539720940550077 0.4580941471021205 0.41116008819404726'></material>
+	</appearance>
+	<sphere radius='1.2423612877467785'></sphere>
+</shape>
+</transform>
+<transform translation='-0.5712156144367446 3.3643588072973696 1.8388117172563332'>
+<shape>
+	<appearance>
+<material diffuseColor='0.4208871281522787 0.42156160459391456 0.31458385187642113'></material>
+	</appearance>
+	<sphere radius='1.3683706214442246'></sphere>
+</shape>
+</transform>
+<transform translation='-1.1776576629197146 -2.537609464782353 2.6758590617663884'>
+<shape>
+	<appearance>
+<material diffuseColor='0.7526542093108143 0.2963502793956334 0.2117091117495412'></material>
+	</appearance>
+	<sphere radius='1.1119480169388374'></sphere>
+</shape>
+</transform>
+<transform translation='-0.8809754614533611 1.8988997361877589 0.3356552189941864'>
+<shape>
+	<appearance>
+<material diffuseColor='0.1882704069319926 0.2632504592737973 0.9037079059496308'></material>
+	</appearance>
+	<sphere radius='0.9838140372877058'></sphere>
+</shape>
+</transform>
+<transform translation='-0.40693888980359194 1.0402965668844475 0.8865590087852686'>
+<shape>
+	<appearance>
+<material diffuseColor='0.43733609481933955 0.07554281141410246 0.8162487469872113'></material>
+	</appearance>
+	<sphere radius='0.92361819183682'></sphere>
+</shape>
+</transform>
+</Scene>
+</X3D>

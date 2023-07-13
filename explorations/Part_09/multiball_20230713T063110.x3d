@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.1//EN" "http://www.web3d.org/specifications/x3d-3.1.dtd">
+<X3D profile="Immersive" version="3.1" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.1.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance">
+<head>
+
+
+	<meta content="13 Jul 2023" name="created"/>
+	<meta content="SketchPad" name="generator"/>
+</head>
+<Scene>
+
+<shape>
+	<appearance>
+<material diffuseColor='0.0 0.0 1.0'></material>
+	</appearance>
+	<sphere></sphere>
+</shape>
+
+<transform translation='1.2924384580301824 3.9904006492232984 -1.2182165504715678'>
+<shape>
+	<appearance>
+<material diffuseColor='0.3336690067793323 0.2583740585406158 0.2606158805963018'></material>
+	</appearance>
+	<sphere></sphere>
+</shape>
+</transform>
+<transform translation='0.23201036436876077 0.7808240307973735 -2.266257493842816'>
+<shape>
+	<appearance>
+<material diffuseColor='0.22983586332951778 0.638612826863149 0.17365820891548422'></material>
+	</appearance>
+	<sphere></sphere>
+</shape>
+</transform>
+<transform translation='-0.6001409638947743 0.7246964108917346 -3.984939227279754'>
+<shape>
+	<appearance>
+<material diffuseColor='0.9786830226273441 0.7766367495617948 0.05989479769852779'></material>
+	</appearance>
+	<sphere></sphere>
+</shape>
+</transform>
+<transform translation='-0.691371681145954 1.5046813274575248 1.5044349875168397'>
+<shape>
+	<appearance>
+<material diffuseColor='0.5145828496029744 0.2664920001159029 0.6971639957537267'></material>
+	</appearance>
+	<sphere></sphere>
+</shape>
+</transform>
+<transform translation='3.4734411577498703 -1.0453042121589462 1.0222392513543106'>
+<shape>
+	<appearance>
+<material diffuseColor='0.49589473437052645 0.9781369377524143 0.356443232920963'></material>
+	</appearance>
+	<sphere></sphere>
+</shape>
+</transform>
+<transform translation='3.0434222146274044 -1.5503696155698528 0.11057359431225589'>
+<shape>
+	<appearance>
+<material diffuseColor='0.38449288738692866 0.3051685537791604 0.33908044906059387'></material>
+	</appearance>
+	<sphere></sphere>
+</shape>
+</transform>
+<transform translation='1.0865316553611253 0.18966779827785185 -1.198811842608941'>
+<shape>
+	<appearance>
+<material diffuseColor='0.5102240665137152 0.18582537767555873 0.08981580935652356'></material>
+	</appearance>
+	<sphere></sphere>
+</shape>
+</transform>
+<transform translation='-3.9319804840712322 3.7227067157431115 -0.12454175214112606'>
+<shape>
+	<appearance>
+<material diffuseColor='0.5506965570283731 0.9794336130042275 0.5176719924738243'></material>
+	</appearance>
+	<sphere></sphere>
+</shape>
+</transform>
+<transform translation='-0.733702438882534 -0.1834815410390931 2.7615250333432364'>
+<shape>
+	<appearance>
+<material diffuseColor='0.1502131490454962 0.4855575353708119 0.02783001400249907'></material>
+	</appearance>
+	<sphere></sphere>
+</shape>
+</transform>
+<transform translation='-1.4294297876397017 -2.1595907198047684 2.010439965194176'>
+<shape>
+	<appearance>
+<material diffuseColor='0.21271800866739587 0.23878115271597333 0.9657365439686201'></material>
+	</appearance>
+	<sphere></sphere>
+</shape>
+</transform>
+<transform translation='2.877368336793788 0.9156230548060194 -3.815098953810656'>
+<shape>
+	<appearance>
+<material diffuseColor='0.8528579387125389 0.4870390003022761 0.8724325835313127'></material>
+	</appearance>
+	<sphere></sphere>
+</shape>
+</transform>
+<transform translation='-2.7180169011744697 -2.129503301196147 -0.4355525772109843'>
+<shape>
+	<appearance>
+<material diffuseColor='0.6413499294298197 0.5945490078993411 0.1950312689839766'></material>
+	</appearance>
+	<sphere></sphere>
+</shape>
+</transform>
+</Scene>
+</X3D>
