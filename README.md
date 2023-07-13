@@ -25,6 +25,12 @@ Repo for learning about the OpenUSD "fileformat". A "Universal Scene Description
 - Plumbing the Metaverse: <https://www.nvidia.com/en-us/on-demand/session/gtcspring21-s31946/>
 - <https://github.com/NVIDIA-Omniverse/USD-Tutorials-And-Examples>
 
+### ASWD USD WG
+
+- <https://wiki.aswf.io/display/WGUSD>
+- <https://wiki.aswf.io/display/WGUSD/Learning+Content>
+- <https://github.com/usd-wg/assets>
+
 ## Misc Tips
 
 Gotcha's that got me:
