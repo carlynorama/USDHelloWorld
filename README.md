@@ -3,16 +3,26 @@
 Repo for learning about the OpenUSD "fileformat". 
 
 ## Misc References
-- What is USD video with Aaron Luk: <https://www.youtube.com/watch?v=1RnTSZK9SwM>
-- Introduction to USD <https://www.nvidia.com/en-us/on-demand/session/gtcspring21-s33132/?playlistId=playList-911c5614-4b7f-4668-b9eb-37f627ac8d17>
-- Plumbing the Metaverse: <https://www.nvidia.com/en-us/on-demand/session/gtcspring21-s31946/>
+
+### Apple
 - Understand USD Fundamentals, WWDC22, https://developer.apple.com/videos/play/wwdc2022/10129/
+- Working with USD <https://developer.apple.com/videos/play/wwdc2019/602/>
+
+### Pixar / OpenUSD
+
 - https://openusd.org/release/index.html
 - https://github.com/PixarAnimationStudios/OpenUSD
 - https://x3dgraphics.com/slidesets/X3dForWebAuthors/Chapter05AppearanceMaterialTextures.pdf
 - https://openusd.org/release/api/usd_page_front.html>
 - https://openusd.org/release/api/_usd__page__properties_of_scene_description.html#Usd_PrimSpecifiers
 - <https://docs.omniverse.nvidia.com/prod_usd/prod_kit/dev_usd/quick-start/api.html>
+
+### NVIDIA
+- https://developer.nvidia.com/usd
+- What is USD video with Aaron Luk: <https://www.youtube.com/watch?v=1RnTSZK9SwM>
+- Introduction to USD <https://www.nvidia.com/en-us/on-demand/session/gtcspring21-s33132/?playlistId=playList-911c5614-4b7f-4668-b9eb-37f627ac8d17>
+- Plumbing the Metaverse: <https://www.nvidia.com/en-us/on-demand/session/gtcspring21-s31946/>
+- <https://github.com/NVIDIA-Omniverse/USD-Tutorials-And-Examples>
 
 ## Misc Tips
 
