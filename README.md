@@ -1,6 +1,6 @@
 # USDHelloWorld
 
-Repo for learning about the OpenUSD "fileformat". 
+Repo for learning about the OpenUSD "fileformat". A "Universal Scene Description" OpenUSD both provides a specification for information on disk, but also a runtime engine to render complex schemas. This repo focuses on understanding the specification for saving information in human readable format, the .usda file.  
 
 ## Misc References
 
