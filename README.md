@@ -1,41 +1,70 @@
 # USDHelloWorld
 
-Repo for learning about the OpenUSD "fileformat". A "Universal Scene Description", OpenUSD both provides a specification for information on disk, but also a runtime API to render complex schemas. This repo focuses on understanding the specification for saving information in human readable format, the .usda file.  
+Repo for learning about the OpenUSD "fileformat". A "Universal Scene Description", OpenUSD both provides a specification (through the code structure) for how to save information on disk, but also a runtime API to weave together complex interlocking information. 
 
-## Misc References
+USD, unlike other "file formats", has a a mission to provide NO DESTRUCTIVE compilation of information. That makes USD data storage verbose, but also very flexible, and very easy to work on in teams.  
 
-### Apple
-- Understand USD Fundamentals, WWDC22, https://developer.apple.com/videos/play/wwdc2022/10129/
-- Working with USD <https://developer.apple.com/videos/play/wwdc2019/602/>
+This repo focuses on understanding the specification for saving information in human readable format, the .usda file.  
 
-### Pixar / OpenUSD
+Proposed Spec for USDA files discussion: 
+<https://github.com/PixarAnimationStudios/OpenUSD/pull/2126> 
 
-- https://openusd.org/release/index.html
-- https://github.com/PixarAnimationStudios/OpenUSD
-- https://x3dgraphics.com/slidesets/X3dForWebAuthors/Chapter05AppearanceMaterialTextures.pdf
-- https://openusd.org/release/api/usd_page_front.html>
-- https://openusd.org/release/api/_usd__page__properties_of_scene_description.html#Usd_PrimSpecifiers
-- <https://docs.omniverse.nvidia.com/prod_usd/prod_kit/dev_usd/quick-start/api.html>
+Proposed Spec for USDC files discussion:
+<https://github.com/PixarAnimationStudios/OpenUSD/pull/2086>
 
-### NVIDIA
-- https://developer.nvidia.com/usd
-- What is USD video: <https://www.youtube.com/watch?v=1RnTSZK9SwM>
-- Getting started USD: (39 minutes) <https://www.nvidia.com/en-us/on-demand/session/gtcspring23-s52054/>
-- Introduction to USD <https://www.nvidia.com/en-us/on-demand/session/gtcspring21-s33132/?playlistId=playList-911c5614-4b7f-4668-b9eb-37f627ac8d17>
-- Plumbing the Metaverse: <https://www.nvidia.com/en-us/on-demand/session/gtcspring21-s31946/>
-- <https://github.com/NVIDIA-Omniverse/USD-Tutorials-And-Examples>
+Asset Structure Guidelines:
+<https://github.com/usd-wg/assets/blob/main/docs/asset-structure-guidelines.md>
 
-### ASWD USD WG
+## Top Getting Started Picks
 
-- <https://wiki.aswf.io/display/WGUSD>
+These are overviews of what USD is / what problems it was meant to solve, not technical installing the library how-tos. 
+
+### Brief OVerview - Video
+
+Luk, Aaron. “Universal Scene Description (OpenUSD): 4 Superpowers to Get You Started,” Video (4:11). YouTube NVIDIA Developer Channel: <https://www.youtube.com/watch?v=1RnTSZK9Sw>. Accessed: 2023 07 13.
+
+Brief overview of what makes USD special by one of the folks who was there at the beginning. 
+
+### In Depth Hello World - Video
+
+Van Gelder, Dirk, "Introduction to USD," Video (26:36). NVidia-On-Demand, GTC Digital (April 2021): <https://www.nvidia.com/en-us/on-demand/session/gtcspring21-s33132/?playlistId=playList-911c5614-4b7f-4668-b9eb-37f627ac8d17>. Accessed: 2023 07 13. 
+
+This does include some 101 how to information, but also explains why USD does things that way. Python focused.
+
+### Longer Overview - Video
+
+- Luk, Aaron. "An Overview of Universal Scene Description (USD) for Building Virtual Worlds," Video (39 minutes).  NVidia-On-Demand, GTC Digital Spring (March 2023). <https://www.nvidia.com/en-us/on-demand/session/gtcspring23-s52054/> Accessed: 2023 07 13. 
+
+Has many "where to find more info" resources at the end. 
+
+### Two Companions 
+
+- Various Authors. Book of USD: Getting Started With Universal Scene Description. <https://remedy-entertainment.github.io/USDBook/> Accessed: 2023 07 13, <https://github.com/Remedy-Entertainment/USDBook/> Accessed: 2023 07 14.
+
+- Various Authors. "USD Terms and Concepts." Universal Scene Description. <https://openusd.org/release/glossary.html> Accessed: 2023 07 13, <https://github.com/PixarAnimationStudios/OpenUSD/tree/release/docs> Accessed: 2023 07 13.
+
+The glossary on the official documentation site, alphabetical by definition, cannot be read in a way that presents a cohesive narrative. 
+
+The Book of USD resource provides simpler definitions in a useful order as an entry point to learn more.
+
+The authors of the Book of USD recommend cross referencing what they've written with the glossary, so I list them as companions. 
+
+
+### Where to Find More
+
+Learning content hubs
+
+- <https://openusd.org/>
+- <https://developer.nvidia.com/usd>
 - <https://wiki.aswf.io/display/WGUSD/Learning+Content>
-- <https://github.com/usd-wg/assets>
+- <https://developer.apple.com/search/?q=USD>
+
 
 ## Misc Tips
 
 Gotcha's that got me:
 
-- Swift `UUID()` is too long to be a prim identifier.
+- Swift `UUID()` is too long to be a prim identifier, also may start with a number which appears to be not allowed.
 - ARKit compliant usd files must be a single usdc file or a usdz archive that contains a single usdc file (plus assets).
 
 
@@ -70,6 +99,36 @@ the support files for the learning about the USD file format series on [whynotes
 - Part 6: [Swift script to Match Day 1](https://www.whynotestflight.com/excuses/hello-usd-part-6-same-as-part-1...-but-swift/)
 - Part 7: [Getting a checker ARKit compliance checker script working](https://www.whynotestflight.com/excuses/hello-usd-part-7-where-my-error-messages-at/)
 - Part 8: [Part 6, but in Package with ArgumentParser](https://www.whynotestflight.com/excuses/hello-usd-part-8-multiball-moves-to-a-package/)
+- Part 9: [Learning through Writing a DSL](https://www.whynotestflight.com/excuses/hello-usd-part-9-parlez-vous-multiball-dsl-starts-here/)
+- Part 10: [Reading Day, references and takeaways]()
 
 
 
+## Link Dump
+
+### Pixar / OpenUSD
+
+- <https://openusd.org/release/index.html>
+- <https://github.com/PixarAnimationStudios/OpenUSD>
+- <https://openusd.org/release/api/usd_page_front.html>
+- <https://openusd.org/release/api/_usd__page__properties_of_scene_description.html#Usd_PrimSpecifiers>
+
+
+### NVIDIA
+- https://developer.nvidia.com/usd
+- What is USD video: <https://www.youtube.com/watch?v=1RnTSZK9SwM>
+- Getting started USD: (39 minutes) <https://www.nvidia.com/en-us/on-demand/session/gtcspring23-s52054/>
+- Introduction to USD <https://www.nvidia.com/en-us/on-demand/session/gtcspring21-s33132/?playlistId=playList-911c5614-4b7f-4668-b9eb-37f627ac8d17>
+- Plumbing the Metaverse: <https://www.nvidia.com/en-us/on-demand/session/gtcspring21-s31946/>
+- <https://github.com/NVIDIA-Omniverse/USD-Tutorials-And-Examples>
+- <https://docs.omniverse.nvidia.com/prod_usd/prod_kit/dev_usd/quick-start/api.html>
+
+### ASWD USD WG
+
+- <https://wiki.aswf.io/display/WGUSD>
+- <https://wiki.aswf.io/display/WGUSD/Learning+Content>
+- <https://github.com/usd-wg/assets>
+
+### Apple
+- Understand USD Fundamentals, WWDC22, https://developer.apple.com/videos/play/wwdc2022/10129/
+- Working with USD <https://developer.apple.com/videos/play/wwdc2019/602/>
