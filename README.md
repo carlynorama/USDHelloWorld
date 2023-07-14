@@ -70,6 +70,7 @@ Gotcha's that got me:
 
 - Swift `UUID()` is too long to be a prim identifier, also may start with a number which appears to be not allowed.
 - ARKit compliant usd files must be a single usdc file or a usdz archive that contains a single usdc file (plus assets).
+- A defaultPrim cannot be a nested prim, e.g. no "defaultPrim = MainPrim/SubPrim"
 
 
 ## In This Repo
