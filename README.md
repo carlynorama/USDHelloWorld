@@ -49,6 +49,10 @@ The Book of USD resource provides simpler definitions in a useful order as an en
 
 The authors of the Book of USD recommend cross referencing what they've written with the glossary, so I list them as companions. 
 
+### Biggest Surprise
+
+<https://developer.nvidia.com/isaac-sim> No spoilers.
+
 
 ### Where to Find More
 
@@ -101,7 +105,6 @@ the support files for the learning about the USD file format series on [whynotes
 - Part 8: [Part 6, but in Package with ArgumentParser](https://www.whynotestflight.com/excuses/hello-usd-part-8-multiball-moves-to-a-package/)
 - Part 9: [Learning through Writing a DSL](https://www.whynotestflight.com/excuses/hello-usd-part-9-parlez-vous-multiball-dsl-starts-here/)
 - Part 10: [Reading Day, references and takeaways]()
-
 
 
 ## Link Dump
