@@ -6,13 +6,13 @@ USD, unlike other "file formats", has a a mission to provide NO DESTRUCTIVE comp
 
 This repo focuses on understanding the specification for saving information in human readable format, the .usda file.  
 
-Proposed Spec for USDA files discussion: 
+Proposed Spec for USDA files discussion:  
 <https://github.com/PixarAnimationStudios/OpenUSD/pull/2126> 
 
-Proposed Spec for USDC files discussion:
+Proposed Spec for USDC files discussion:  
 <https://github.com/PixarAnimationStudios/OpenUSD/pull/2086>
 
-Asset Structure Guidelines:
+Asset Structure Guidelines:  
 <https://github.com/usd-wg/assets/blob/main/docs/asset-structure-guidelines.md>
 
 ## Top Getting Started Picks
