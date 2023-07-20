@@ -1,9 +1,11 @@
 name: Build Linux
 
 on:
+  push:
+    branches: [ "main" ]
   pull_request:
-    branches:
-      - main
+    branches: [ "main" ]
+
       
 jobs:
   # see https://github.com/pablode/USD/blob/v22.11-ci/.github/workflows/deploy-release.yml
