@@ -23,12 +23,13 @@ jobs:
         uses: actions/checkout@v3
       - name: Update apt-get 
         run: sudo apt-get update
-      ## Ubuntu latest has much of what is needed. Here for convenience
-      ## https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu2204-Readme.md
-      # - name: Set up packages (Linux)
-      #   run: |
-      #     sudo apt-get update
-      #     sudo apt-get install -y 
+      # Ubuntu latest has much of what is needed.
+      # https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu2204-Readme.md
+      # Still needed OpenGL
+      - name: Set up packages (Linux)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libgl1-mesa-dev libglu1-mesa-dev
       - name: Clone Pixar USD
       ## https://github.com/actions/checkout#checkout-multiple-repos-side-by-side
         uses: actions/checkout@v3
