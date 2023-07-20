@@ -34,13 +34,12 @@ jobs:
           ## Relative path __under $GITHUB_WORKSPACE __ to place the repository
           ## This appears to be a litteral. Cannot take $GITHUB_ENV variable.
           path: OpenUSD_REPO
-      - name: Add Repo Loaction to Env
+      - name: Add Repo Loaction to GITHUB_ENV
         run: |
           echo "USD_REPO_DIR=$PWD/OpenUSD_REPO" >> $GITHUB_ENV
           echo "-----"
           pwd  
           ls
-          echo "USD_REPO_DIR=$PWD/OpenUSD_REPO" >> $GITHUB_ENV
           echo $GITHUB_WORKSPACE
           echo $PATH
           echo $GITHUB_ENV
