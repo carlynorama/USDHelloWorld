@@ -81,7 +81,10 @@ jobs:
           key: ${{ steps.cache-openusd-restore.outputs.cache-primary-key }}   
       # https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#adding-a-system-path
       - name: Can it run if called directly?
-        run: $USD_BUILD_DIR/bin/usdcat -h
+        run: |
+          ls
+          ls $USD_BUILD_DIR
+          $USD_BUILD_DIR/bin/usdcat -h
       - name: Add OpenUSD Build to PATH
         run: |
           echo "----- OpenUSD Build to PATH?"
