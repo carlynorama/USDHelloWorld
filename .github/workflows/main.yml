@@ -38,7 +38,7 @@ jobs:
         with:
           path: |
             OpenUSD_REPO
-            OpenUSD_INSTALL
+            OpenUSD_BUILD
           key: ${{ runner.os }}-openusd
       - name: Clone Pixar USD
         if: steps.cache-openusd-restore.outputs.cache-hit != 'true'
@@ -77,13 +77,20 @@ jobs:
         with:
           path: |
             OpenUSD_REPO
-            OpenUSD_INSTALL
+            OpenUSD_BUILD
           key: ${{ steps.cache-openusd-restore.outputs.cache-primary-key }}   
       # https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#adding-a-system-path
       - name: Can it run if called directly?
         run: |
           ls
+          echo "-----"
+          echo $USD_REPO_DIR
+          ls $USD_REPO_DIR
+          echo "-----"
+          echo "-----"
+          echo $USD_BUILD_DIR
           ls $USD_BUILD_DIR
+          echo "-----"
           $USD_BUILD_DIR/bin/usdcat -h
       - name: Add OpenUSD Build to PATH
         run: |
