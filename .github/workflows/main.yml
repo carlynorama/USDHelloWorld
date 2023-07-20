@@ -1,6 +1,11 @@
 # see https://github.com/pablode/USD/blob/v22.11-ci/.github/workflows/deploy-release.yml
 # https://github.com/usd-wg/assets/pull/49
 # https://github.com/usd-wg/assets/pull/48 
+
+# About Ubuntu-Latest
+# https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners
+# https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu2204-Readme.md
+
 name: Build Linux
 
 on:
@@ -43,7 +48,7 @@ jobs:
           which python3
           python3 --version
           which python
-          python -- version
+          python --version
           echo $GITHUB_WORKSPACE
           echo $PATH
           echo $GITHUB_ENV
