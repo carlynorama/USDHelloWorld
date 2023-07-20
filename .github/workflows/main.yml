@@ -79,13 +79,22 @@ jobs:
             OpenUSD_REPO
             OpenUSD_INSTALL
           key: ${{ steps.cache-openusd-restore.outputs.cache-primary-key }}   
+      # https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#adding-a-system-path
       - name: Add OpenUSD Build to PATH
-        shell: bash
         run: |
-          echo $USD_BUILD_DIR/bin >> $GITHUB_PATH
+          echo "-----"
+          export PATH=$PATH:$USD_BUILD_DIR/bin;
+          export PYTHONPATH=$PYTHONPATH:$USD_BUILD_DIR/lib/pythonecho 
+          $USD_BUILD_DIR/bin >> $GITHUB_PATH
           echo $PATH
-          $GITHUB_PATH
-          $USD_BUILD_DIR/bin usdcat -h
-      # - name: Did it work?
-      #   run: |
-      #     which usdcat
+          echo $GITHUB_PATH
+          $USD_BUILD_DIR/bin/usdcat -h
+          echo "PYTHONPATH=$PYTHONPATH" >> $GITHUB_ENV
+          echo $PYTHONPATH
+          echo "-----"
+      - name: Did it work?
+        run: |
+          echo $PYTHONPATH
+          echo $PATH
+          echo $GITHUB_PATH
+          which usdcat
