@@ -28,9 +28,9 @@ jobs:
       # Ubuntu latest has much of what is needed.
       # https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu2204-Readme.md
       # Still needed OpenGL
+      # TODO: https://github.com/marketplace/actions/cache-anything-new ?
       - name: Set up packages (Linux)
         run: |
-          sudo apt-get update
           sudo apt-get install -y libgl1-mesa-dev libglu1-mesa-dev
       - name: Restore OpenUSD (Repo and Build)
         id: cache-openusd-restore
