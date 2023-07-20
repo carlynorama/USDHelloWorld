@@ -58,14 +58,14 @@ jobs:
       - name: Build USD (no python) add to env
         run: |
           python3 $USD_REPO_DIR/build_scripts/build_usd.py --no-python --no-materialx OpenUSD_BUILD
-          echo "USD_BUILD_DIR=$PWD/OpenUSD_BUILD" >> $GITHUB_ENV
-          
+          echo "USD_BUILD_DIR=$PWD/OpenUSD_BUILD" >> $GITHUB_ENV          
       - name: Add OpenUSD Build to PATH
         shell: bash
         run: |
           echo $USD_BUILD_DIR/bin >> $GITHUB_PATH
           echo $PATH
-          which usdcat
+          echo $GITHUB_PATH
+
       - name: Did it work?
         run: |
-          usdcat -h
+          which usdcat
