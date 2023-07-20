@@ -19,7 +19,7 @@ jobs:
       ## TODO, heard a rumour that ubuntu-latest uses passwordless sudo
       ## May not be necessary
       - name: Install sudo 
-        run: apt update && apt install sudo
+        run: apt-get update && apt-get install sudo
       ## Ubuntu latest has much of what is needed. 
       ## https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu2204-Readme.md
       # - name: Set up packages (Linux)
