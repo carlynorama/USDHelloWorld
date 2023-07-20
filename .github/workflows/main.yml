@@ -8,6 +8,10 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+
+env:
+  USD_REPO_DIR: OpenUSD_REPO
+  USD_BUILD_DIR: OpenUSD_BUILD
       
 jobs:
   build:
@@ -19,16 +23,13 @@ jobs:
       ## TODO, heard a rumour that ubuntu-latest uses passwordless sudo
       ## May not be necessary
       - name: Update apt-get 
-        run: sudo apt-get update
+        run: apt-get update
       ## Ubuntu latest has much of what is needed. 
       ## https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu2204-Readme.md
       # - name: Set up packages (Linux)
       #   run: |
       #     sudo apt-get update
       #     sudo apt-get install -y 
-      - name: Add Desired Repo Location to Env
-        run: 
-          echo "USD_REPO_DIR=$PWD/OpenUSD_REPO" >> $GITHUB_ENV
       - name: Clone Pixar USD
       ## https://github.com/actions/checkout#checkout-multiple-repos-side-by-side
         uses: actions/checkout@v3
