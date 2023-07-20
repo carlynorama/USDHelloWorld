@@ -84,25 +84,17 @@ jobs:
           key: ${{ steps.cache-openusd-restore.outputs.cache-primary-key }}   
       ## $GITHUB_PATH update works only for NEXT step
       ## https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#adding-a-system-path
-      - name: Add OpenUSD Build to PATH
+      - name: Add OpenUSD Build to PATH and PYTHONPATH
         run: |
-          echo "----- OpenUSD Build to PATH?"
-          echo $PATH
-          echo $GITHUB_PATH
-          echo $PYTHONPATH
-          echo "-----"
           export PYTHONPATH=$PYTHONPATH:$USD_BUILD_DIR/lib/pythonecho 
           echo "$USD_BUILD_DIR/bin" >> $GITHUB_PATH
           echo "PYTHONPATH=$PYTHONPATH" >> $GITHUB_ENV
-          echo "-----"
-          echo $PATH
-          echo $GITHUB_PATH
-          echo $PYTHONPATH
-      - name: Did it work?
+      - name: Confirm in Path
         run: |
           echo "----- START Did it work?"
+          echo $USD_BUILD_DIR
           echo $PYTHONPATH
           echo $PATH
-          echo "-----"
           echo $GITHUB_PATH
-          which usdcat
+          echo "-----"
+          usdcat -h
