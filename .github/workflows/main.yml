@@ -64,13 +64,16 @@ jobs:
           echo $GITHUB_WORKSPACE
           echo $PATH
           echo $GITHUB_ENV
-          echo .env
           echo "-----"
-      - name: Build USD (no python) add to env
+      - name: Build USD (no python)
         if: steps.cache-openusd-restore.outputs.cache-hit != 'true'
         run: |
           python3 $USD_REPO_DIR/build_scripts/build_usd.py --no-python --no-materialx OpenUSD_BUILD
           echo "USD_BUILD_DIR=$PWD/OpenUSD_BUILD" >> $GITHUB_ENV
+      - name: Confirms Runs
+        if: steps.cache-openusd-restore.outputs.cache-hit != 'true'
+        run: |
+            $USD_BUILD_DIR/bin/usdcat -h
       - name: Save OpenUSD Cache (Repo & Build)
         id: cache-openusd-save
         uses: actions/cache/save@v3
@@ -79,19 +82,8 @@ jobs:
             OpenUSD_REPO
             OpenUSD_BUILD
           key: ${{ steps.cache-openusd-restore.outputs.cache-primary-key }}   
-      # https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#adding-a-system-path
-      - name: Can it run if called directly?
-        run: |
-          ls
-          echo "-----"
-          echo $USD_REPO_DIR
-          ls $USD_REPO_DIR
-          echo "-----"
-          echo "-----"
-          echo $USD_BUILD_DIR
-          ls $USD_BUILD_DIR
-          echo "-----"
-          $USD_BUILD_DIR/bin/usdcat -h
+      ## $GITHUB_PATH update works only for NEXT step
+      ## https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#adding-a-system-path
       - name: Add OpenUSD Build to PATH
         run: |
           echo "----- OpenUSD Build to PATH?"
@@ -100,7 +92,7 @@ jobs:
           echo $PYTHONPATH
           echo "-----"
           export PYTHONPATH=$PYTHONPATH:$USD_BUILD_DIR/lib/pythonecho 
-          $USD_BUILD_DIR/bin >> $GITHUB_PATH
+          echo "$USD_BUILD_DIR/bin" >> $GITHUB_PATH
           echo "PYTHONPATH=$PYTHONPATH" >> $GITHUB_ENV
           echo "-----"
           echo $PATH
