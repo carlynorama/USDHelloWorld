@@ -9,13 +9,14 @@ on:
   pull_request:
     branches: [ "main" ]
 
+env:
+  USD_REPO_DIR: OpenUSD_REPO
+  USD_INSTALL_DIR: OpenUSD_COMPILED
       
 jobs:
   build:
     name: Build Linux
     runs-on: ubuntu-latest
-    container:
-      image: swift:latest
     steps:
       - name: Checkout This Repo
         uses: actions/checkout@v3
@@ -37,18 +38,20 @@ jobs:
           ## The branch, tag or SHA to checkout.
           # ref: 
           ## Relative path __under $GITHUB_WORKSPACE __ to place the repository
-          path: "OpenUSD"
+          path: $USD_REPO_DIR
       - name: Verify Download
         run: |
+          echo "----------"
           pwd  
           ls
+          ls $USD_REPO_DIR
           echo $GITHUB_WORKSPACE
-      # - name: Build USD (no python) add to env
-      #   run: |
-      #     python3 $GITHUB_WORKSPACE/OpenUSD/build_scripts/build_usd.py --no-python
-      #     echo "USD_INSTALL_DIR=$PWD/INSTALL" >> $GITHUB_ENV
-      #     echo $PATH
-      #     echo $GITHUB_ENV
+          echo "----------"
+      - name: Build USD (no python) add to env
+        run: |
+          python3 $GITHUB_WORKSPACE/OpenUSD/build_scripts/build_usd.py --no-python $USD_INSTALL_DIR
+          echo $PATH
+          echo $GITHUB_ENV
       # - name: Did it work?
       #   run: |
       #     usdcat -h
