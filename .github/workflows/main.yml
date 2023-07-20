@@ -63,7 +63,9 @@ jobs:
       - name: Add OpenUSD Build to PATH
         shell: bash
         run: |
-          echo $USD_BUILD_DIR >> $GITHUB_PATH
+          echo $USD_BUILD_DIR/bin >> $GITHUB_PATH
+          echo $PATH
+          which usdcat
       - name: Did it work?
         run: |
           usdcat -h
