@@ -1,3 +1,6 @@
+# see https://github.com/pablode/USD/blob/v22.11-ci/.github/workflows/deploy-release.yml
+# https://github.com/usd-wg/assets/pull/49
+# https://github.com/usd-wg/assets/pull/48
 name: Build Linux
 
 on:
@@ -8,7 +11,6 @@ on:
 
       
 jobs:
-  # see https://github.com/pablode/USD/blob/v22.11-ci/.github/workflows/deploy-release.yml
   build:
     name: Build Linux
     runs-on: ubuntu-latest
@@ -31,7 +33,7 @@ jobs:
       ## https://github.com/actions/checkout#checkout-multiple-repos-side-by-side
         uses: actions/checkout@v3
         with:
-          repository: /PixarAnimationStudios/OpenUSD
+          repository: PixarAnimationStudios/OpenUSD
           ## The branch, tag or SHA to checkout.
           # ref: 
           ## Relative path under $GITHUB_WORKSPACE (!!?) to place the repository
