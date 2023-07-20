@@ -10,8 +10,7 @@ on:
     branches: [ "main" ]
 
 env:
-  USD_REPO_DIR: OpenUSD_REPO
-  USD_BUILD_DIR: OpenUSD_BUILD
+  USD_REPO_GHWS_REL_PATH: OpenUSD_REPO
       
 jobs:
   build:
@@ -23,7 +22,7 @@ jobs:
       ## TODO, heard a rumour that ubuntu-latest uses passwordless sudo
       ## May not be necessary
       - name: Update apt-get 
-        run: apt-get update
+        run: sudo apt-get update
       ## Ubuntu latest has much of what is needed. 
       ## https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu2204-Readme.md
       # - name: Set up packages (Linux)
@@ -38,17 +37,17 @@ jobs:
           ## The branch, tag or SHA to checkout.
           # ref: 
           ## Relative path __under $GITHUB_WORKSPACE __ to place the repository
-          path: $USD_REPO_DIR
+          path: $USD_REPO_GHWS_REL_PATH
       - name: Verify Download
         run: |
           pwd  
           ls
-          ls $USD_REPO_DIR
+          ls $USD_REPO_GHWS_REL_PATH
           echo $GITHUB_WORKSPACE
       # - name: Build USD (no python) add to env
       #   run: |
       #     python3 $GITHUB_WORKSPACE/OpenUSD/build_scripts/build_usd.py --no-python
-      #     echo "USD_INSTALL_DIR=$PWD/INSTALL" >> $GITHUB_ENV
+      #     echo "USD_INSTALL_DIR=$PWD/$USD_INSTALL_DIR" >> $GITHUB_ENV
       #     echo $PATH
       #     echo $GITHUB_ENV
       # - name: Did it work?
