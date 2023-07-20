@@ -36,13 +36,17 @@ jobs:
           repository: PixarAnimationStudios/OpenUSD
           ## The branch, tag or SHA to checkout.
           # ref: 
-          ## Relative path under $GITHUB_WORKSPACE (!!?) to place the repository
+          ## Relative path __under $GITHUB_WORKSPACE __ to place the repository
           # path: ""
-      - name: Build USD (no python) add to env
+      - name: Verify Download
         run: |
-          python3 $GITHUB_WORKSPACE/USD/build_scripts/build_usd.py
-          python3 USD/build_scripts/build_usd.py --no-python $BUILD_DEST_DIR
-          echo "USD_INSTALL_DIR=$PWD/INSTALL" >> $GITHUB_ENV
-      - name: Did it work?
-        run: |
-            usdcat -h
+          pwd  
+          ls
+          echo $GITHUB_WORKSPACE
+      # - name: Build USD (no python) add to env
+      #   run: |
+      #     python3 $GITHUB_WORKSPACE/USD/build_scripts/build_usd.py --no-python
+      #     echo "USD_INSTALL_DIR=$PWD/INSTALL" >> $GITHUB_ENV
+      # - name: Did it work?
+      #   run: |
+      #     usdcat -h
