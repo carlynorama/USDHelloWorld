@@ -21,31 +21,17 @@ jobs:
     name: Build Linux
     runs-on: ubuntu-latest
     steps:
-      #### ---------  CHECKOUT THIS REPO IF WILL USE SCRIPTS FROM IT -----------
       - name: Checkout This Repo
         uses: actions/checkout@v3
-      #### ----------------------  ENVIRONMENT SET UP --------------------------
-      # TODO: https://github.com/marketplace/actions/cache-anything-new ?
       - name: Update apt-get 
         run: sudo apt-get update
       # Ubuntu latest has much of what is needed.
       # https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu2204-Readme.md
       # Still needed OpenGL
+      # TODO: https://github.com/marketplace/actions/cache-anything-new ?
       - name: Set up packages (Linux)
         run: |
           sudo apt-get install -y libgl1-mesa-dev libglu1-mesa-dev
-      # https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
-      - name: Load and Cache Python
-      - uses: actions/setup-python@v4
-        with:
-        # 3.10 is default
-        # python-version: '3.9'  
-        cache: 'pip' # caching pip dependencies
-      - run: |
-          pip install install PyOpenGL
-          pip install PySide6==6.4.3
-          pip install numpy
-      #### --------------------------  USD SET UP ------------------------------
       - name: Restore OpenUSD (Repo and Build)
         id: cache-openusd-restore
         uses: actions/cache/restore@v3
@@ -82,7 +68,7 @@ jobs:
       - name: Build USD (no python)
         if: steps.cache-openusd-restore.outputs.cache-hit != 'true'
         run: |
-          python $USD_REPO_DIR/build_scripts/build_usd.py --no-python --no-materialx OpenUSD_BUILD
+          python3 $USD_REPO_DIR/build_scripts/build_usd.py --no-python --no-materialx OpenUSD_BUILD
           echo "USD_BUILD_DIR=$PWD/OpenUSD_BUILD" >> $GITHUB_ENV
       - name: Save OpenUSD Cache (Repo & Build)
         id: cache-openusd-save
@@ -128,5 +114,3 @@ jobs:
           echo "-----"
           echo $GITHUB_PATH
           which usdcat
-      #### ----------------------  REPO SPECIFIC CODE --------------------------
-      ## If did not check out repo already, do so now. 
