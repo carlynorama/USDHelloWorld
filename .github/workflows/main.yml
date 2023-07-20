@@ -8,9 +8,6 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-
-env:
-  USD_REPO_GHWS_REL_PATH: OpenUSD_REPO
       
 jobs:
   build:
@@ -19,11 +16,9 @@ jobs:
     steps:
       - name: Checkout This Repo
         uses: actions/checkout@v3
-      ## TODO, heard a rumour that ubuntu-latest uses passwordless sudo
-      ## May not be necessary
       - name: Update apt-get 
         run: sudo apt-get update
-      ## Ubuntu latest has much of what is needed. 
+      ## Ubuntu latest has much of what is needed. Here for convenience
       ## https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu2204-Readme.md
       # - name: Set up packages (Linux)
       #   run: |
@@ -37,19 +32,29 @@ jobs:
           ## The branch, tag or SHA to checkout.
           # ref: 
           ## Relative path __under $GITHUB_WORKSPACE __ to place the repository
-          path: $USD_REPO_GHWS_REL_PATH
-      - name: Verify Download
+          ## This appears to be a litteral. Cannot take $GITHUB_ENV variable.
+          path: OpenUSD_REPO
+      - name: Add Repo Loaction to Env
         run: |
+          echo "USD_REPO_DIR=$PWD/OpenUSD_REPO" >> $GITHUB_ENV
+          echo "-----"
           pwd  
           ls
-          ls $USD_REPO_GHWS_REL_PATH
+          echo "USD_REPO_DIR=$PWD/OpenUSD_REPO" >> $GITHUB_ENV
           echo $GITHUB_WORKSPACE
-      # - name: Build USD (no python) add to env
-      #   run: |
-      #     python3 $GITHUB_WORKSPACE/OpenUSD/build_scripts/build_usd.py --no-python
-      #     echo "USD_INSTALL_DIR=$PWD/$USD_INSTALL_DIR" >> $GITHUB_ENV
-      #     echo $PATH
-      #     echo $GITHUB_ENV
-      # - name: Did it work?
-      #   run: |
-      #     usdcat -h
+          echo $PATH
+          echo $GITHUB_ENV
+          echo .env
+          echo "-----"
+      - name: Build USD (no python) add to env
+        run: |
+          python3 $USD_REPO_DIR/build_scripts/build_usd.py --no-python OpenUSD_BUILD
+          echo "USD_BUILD_DIR=$PWD/OpenUSD_BUILD" >> $GITHUB_ENV
+          
+      - name: Add OpenUSD Build to PATH
+        shell: bash
+        run: |
+          echo $USD_BUILD_DIR >> $GITHUB_PATH
+      - name: Did it work?
+        run: |
+          usdcat -h
