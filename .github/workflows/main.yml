@@ -37,13 +37,14 @@ jobs:
         run: |
           sudo apt-get install -y libgl1-mesa-dev libglu1-mesa-dev
       # https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
-      - name: Load and Cache Python
-      - uses: actions/setup-python@v4
+      - name: Setup Python
+        uses: actions/setup-python@v4
         with:
-        # 3.10 is default
-        # python-version: '3.9'  
-        cache: 'pip' # caching pip dependencies
-      - run: |
+          # 3.10 is default
+          python-version: '3.10'  
+          cache: 'pip' # caching pip dependencies
+      - name: Install Dependencies
+        run: |
           pip install install PyOpenGL
           pip install PySide6==6.4.3
           pip install numpy
