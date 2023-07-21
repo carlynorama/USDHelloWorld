@@ -1,0 +1,98 @@
+# see https://github.com/pablode/USD/blob/v22.11-ci/.github/workflows/deploy-release.yml
+# https://github.com/usd-wg/assets/pull/49
+# https://github.com/usd-wg/assets/pull/48 
+
+# About Ubuntu-Latest
+# https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners
+# https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu2204-Readme.md
+
+# About Cache Actions
+# https://github.com/marketplace/actions/cache
+
+name: Build Linux
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+      
+jobs:
+  build:
+    name: Build Linux
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout This Repo
+        uses: actions/checkout@v3
+      - name: Find Local Action
+        uses: ./.github/actions/hello_action
+      - name: Update apt-get 
+        run: sudo apt-get update
+      # Ubuntu latest has much of what is needed.
+      # https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu2204-Readme.md
+      # Still needed OpenGL
+      - name: Set up packages (Linux)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libgl1-mesa-dev libglu1-mesa-dev
+      - name: Restore OpenUSD (Repo and Build)
+        id: cache-openusd-restore
+        uses: actions/cache/restore@v3
+        with:
+          path: |
+            OpenUSD_REPO
+            OpenUSD_NOPYTHON_BUILD
+          key: ${{ runner.os }}-openusdnp
+      - name: Build Fresh No Python
+        if: steps.cache-openusd-restore.outputs.cache-hit != 'true'
+        uses: ./.github/actions/clone_and_build_no_python
+      - name: Use Cached Build
+        if: steps.cache-openusd-restore.outputs.cache-hit == 'true'
+        run: |
+          echo "USD_REPO_DIR=$PWD/OpenUSD_REPO" >> $GITHUB_ENV
+          echo "USD_BUILD_DIR=$PWD/OpenUSD_NOPYTHON_BUILD" >> $GITHUB_ENV
+      - name: Tell me about Environement
+        run: |
+          echo "-----"
+          pwd  
+          ls
+          which python3
+          python3 --version
+          which python
+          python --version
+          echo $GITHUB_WORKSPACE
+          echo $PATH
+          echo $GITHUB_ENV
+          echo .env
+          echo "-----"
+      - name: Save OpenUSD Cache (Repo & Build)
+        id: cache-openusdnp-save
+        uses: actions/cache/save@v3
+        with:
+          path: |
+            OpenUSD_REPO
+            OpenUSD_NOPYTHON_BUILD
+          key: ${{ steps.cache-openusdnp-restore.outputs.cache-primary-key }}   
+      # https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#adding-a-system-path
+      - name: Confirms Runs
+      # if: steps.cache-openusd-restore.outputs.cache-hit != 'true'
+        run: |
+            $USD_BUILD_DIR/bin/usdcat -h
+      - name: Add OpenUSD Build to PATH and PYTHONPATH
+        run: |
+          export PYTHONPATH=$PYTHONPATH:$USD_BUILD_DIR/lib/python 
+          echo "$USD_BUILD_DIR/bin" >> $GITHUB_PATH
+          echo "PYTHONPATH=$PYTHONPATH" >> $GITHUB_ENV
+      - name: Confirm in Path
+        run: |
+          echo "----- START Did it work?"
+          echo $USD_BUILD_DIR
+          echo $PYTHONPATH
+          echo $PATH
+          echo $GITHUB_PATH
+          echo $GITHUB_ENV
+          ls $USD_BUILD_DIR/bin/
+          echo "-----"
+          usdcat -h
+
+

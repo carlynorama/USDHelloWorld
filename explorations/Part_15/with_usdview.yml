@@ -10,6 +10,15 @@
 # https://github.com/marketplace/actions/cache
 
 
+###################
+#
+# Full install, no caching works in confirmed_works folder as 
+# no_caching_full_works_one_file.yml
+#
+###################
+
+
+
 name: Build Linux
 
 on:
