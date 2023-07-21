@@ -8,6 +8,7 @@
 
 # About Cache Actions
 # https://github.com/marketplace/actions/cache
+
 name: Build Linux
 
 on:
@@ -23,6 +24,8 @@ jobs:
     steps:
       - name: Checkout This Repo
         uses: actions/checkout@v3
+      - name: Find Local Action
+        uses: ./.github/actions/hello_action
       - name: Update apt-get 
         run: sudo apt-get update
       # Ubuntu latest has much of what is needed.
@@ -38,16 +41,16 @@ jobs:
         with:
           path: |
             OpenUSD_REPO
-            OpenUSD_BUILD
-          key: ${{ runner.os }}-openusd
+            OpenUSD_NOPYTHON_BUILD
+          key: ${{ runner.os }}-openusdnp
       - name: Build Fresh No Python
         if: steps.cache-openusd-restore.outputs.cache-hit != 'true'
-        uses: ./actions/clone_and_build_no_python
+        uses: ./.github/actions/clone_and_build_no_python
       - name: Use Cached Build
         if: steps.cache-openusd-restore.outputs.cache-hit == 'true'
         run: |
           echo "USD_REPO_DIR=$PWD/OpenUSD_REPO" >> $GITHUB_ENV
-          echo "USD_BUILD_DIR=$PWD/OpenUSD_BUILD" >> $GITHUB_ENV
+          echo "USD_BUILD_DIR=$PWD/OpenUSD_NOPYTHON_BUILD" >> $GITHUB_ENV
       - name: Tell me about Environement
         run: |
           echo "-----"
@@ -63,13 +66,13 @@ jobs:
           echo .env
           echo "-----"
       - name: Save OpenUSD Cache (Repo & Build)
-        id: cache-openusd-save
+        id: cache-openusdnp-save
         uses: actions/cache/save@v3
         with:
           path: |
             OpenUSD_REPO
-            OpenUSD_BUILD
-          key: ${{ steps.cache-openusd-restore.outputs.cache-primary-key }}   
+            OpenUSD_NOPYTHON_BUILD
+          key: ${{ steps.cache-openusdnp-restore.outputs.cache-primary-key }}   
       # https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#adding-a-system-path
       - name: Confirms Runs
       # if: steps.cache-openusd-restore.outputs.cache-hit != 'true'
@@ -77,7 +80,7 @@ jobs:
             $USD_BUILD_DIR/bin/usdcat -h
       - name: Add OpenUSD Build to PATH and PYTHONPATH
         run: |
-          export PYTHONPATH=$PYTHONPATH:$USD_BUILD_DIR/lib/python
+          export PYTHONPATH=$PYTHONPATH:$USD_BUILD_DIR/lib/python 
           echo "$USD_BUILD_DIR/bin" >> $GITHUB_PATH
           echo "PYTHONPATH=$PYTHONPATH" >> $GITHUB_ENV
       - name: Confirm in Path
