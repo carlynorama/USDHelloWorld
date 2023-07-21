@@ -111,5 +111,6 @@ jobs:
           echo $GITHUB_ENV
           echo "-----"
           usdcat -h
+          usdview -h
       #### ----------------------  REPO SPECIFIC CODE --------------------------
       ## If did not check out repo already, do so now. 
