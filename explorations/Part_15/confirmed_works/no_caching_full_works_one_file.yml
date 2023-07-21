@@ -98,7 +98,7 @@ jobs:
       ## https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#adding-a-system-path
       - name: Add OpenUSD Build to PATH and PYTHONPATH
         run: |
-          export PYTHONPATH=$PYTHONPATH:$USD_BUILD_DIR/lib/pythonecho 
+          export PYTHONPATH=$PYTHONPATH:$USD_BUILD_DIR/lib/python 
           echo "$USD_BUILD_DIR/bin" >> $GITHUB_PATH
           echo "PYTHONPATH=$PYTHONPATH" >> $GITHUB_ENV
       - name: Confirm in Path
