@@ -8,11 +8,13 @@
 
 # About Cache Actions
 # https://github.com/marketplace/actions/cache
+
+
 name: Build Linux
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "gha_dev" ]
   pull_request:
     branches: [ "main" ]
       
@@ -24,7 +26,7 @@ jobs:
       #### ---------  CHECKOUT THIS REPO IF WILL USE SCRIPTS FROM IT -----------
       - name: Checkout This Repo
         uses: actions/checkout@v3
-      #### ----------------------  ENVIRONMENT SET UP --------------------------
+      #### --------------------------  IMAGE SET UP ----------------------------
       # TODO: https://github.com/marketplace/actions/cache-anything-new ?
       - name: Update apt-get 
         run: sudo apt-get update
@@ -35,13 +37,14 @@ jobs:
         run: |
           sudo apt-get install -y libgl1-mesa-dev libglu1-mesa-dev
       # https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
-      - name: Load and Cache Python
-      - uses: actions/setup-python@v4
+      - name: Setup Python
+        uses: actions/setup-python@v4
         with:
-        # 3.10 is default
-        # python-version: '3.9'  
-        cache: 'pip' # caching pip dependencies
-      - run: |
+          # 3.10 is default
+          python-version: '3.10'  
+          cache: 'pip' # caching pip dependencies
+      - name: Install Dependencies
+        run: |
           pip install install PyOpenGL
           pip install PySide6==6.4.3
           pip install numpy
@@ -82,7 +85,7 @@ jobs:
       - name: Build USD (no python)
         if: steps.cache-openusd-restore.outputs.cache-hit != 'true'
         run: |
-          python $USD_REPO_DIR/build_scripts/build_usd.py --no-python --no-materialx OpenUSD_BUILD
+          python $USD_REPO_DIR/build_scripts/build_usd.py OpenUSD_BUILD
           echo "USD_BUILD_DIR=$PWD/OpenUSD_BUILD" >> $GITHUB_ENV
       - name: Confirms Runs
         if: steps.cache-openusd-restore.outputs.cache-hit != 'true'
@@ -98,8 +101,6 @@ jobs:
           key: ${{ steps.cache-openusd-restore.outputs.cache-primary-key }}   
       ## $GITHUB_PATH update works only for NEXT step
       ## https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#adding-a-system-path
-      ## $GITHUB_PATH update works only for NEXT step
-      ## https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#adding-a-system-path
       - name: Add OpenUSD Build to PATH and PYTHONPATH
         run: |
           export PYTHONPATH=$PYTHONPATH:$USD_BUILD_DIR/lib/pythonecho 
@@ -112,6 +113,7 @@ jobs:
           echo $PYTHONPATH
           echo $PATH
           echo $GITHUB_PATH
+          echo $GITHUB_ENV
           echo "-----"
           usdcat -h
       #### ----------------------  REPO SPECIFIC CODE --------------------------
