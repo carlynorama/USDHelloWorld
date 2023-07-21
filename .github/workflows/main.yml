@@ -8,11 +8,13 @@
 
 # About Cache Actions
 # https://github.com/marketplace/actions/cache
+
+
 name: Build Linux
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "gha_dev" ]
   pull_request:
     branches: [ "main" ]
       
@@ -21,27 +23,37 @@ jobs:
     name: Build Linux
     runs-on: ubuntu-latest
     steps:
+      #### ---------  CHECKOUT THIS REPO IF WILL USE SCRIPTS FROM IT -----------
       - name: Checkout This Repo
         uses: actions/checkout@v3
+      #### --------------------------  IMAGE SET UP ----------------------------
+      # TODO: https://github.com/marketplace/actions/cache-anything-new ?
       - name: Update apt-get 
         run: sudo apt-get update
       # Ubuntu latest has much of what is needed.
       # https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu2204-Readme.md
       # Still needed OpenGL
-      # TODO: https://github.com/marketplace/actions/cache-anything-new ?
       - name: Set up packages (Linux)
         run: |
           sudo apt-get install -y libgl1-mesa-dev libglu1-mesa-dev
-      - name: Restore OpenUSD (Repo and Build)
-        id: cache-openusd-restore
-        uses: actions/cache/restore@v3
-        with:
-          path: |
-            OpenUSD_REPO
-            OpenUSD_BUILD
-          key: ${{ runner.os }}-openusd
+      # https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install install PyOpenGL
+          pip install PySide6==6.4.3
+          pip install numpy
+      #### --------------------------  USD SET UP ------------------------------
+      # - name: Restore OpenUSD (Repo and Build)
+      #   id: cache-openusd-restore
+      #   uses: actions/cache/restore@v3
+      #   with:
+      #     path: |
+      #       OpenUSD_REPO
+      #       OpenUSD_BUILD
+      #     key: ${{ runner.os }}-openusd
       - name: Clone Pixar USD
-        if: steps.cache-openusd-restore.outputs.cache-hit != 'true'
+        # if: steps.cache-openusd-restore.outputs.cache-hit != 'true'
         uses: actions/checkout@v3
         with:
           repository: PixarAnimationStudios/OpenUSD
@@ -51,7 +63,7 @@ jobs:
           ## This appears to be a litteral. Cannot take $GITHUB_ENV variable.
           path: OpenUSD_REPO
       - name: Add Repo Loaction to GITHUB_ENV
-        if: steps.cache-openusd-restore.outputs.cache-hit != 'true'
+        # if: steps.cache-openusd-restore.outputs.cache-hit != 'true'
         run: |
           echo "USD_REPO_DIR=$PWD/OpenUSD_REPO" >> $GITHUB_ENV
           echo "-----"
@@ -66,27 +78,27 @@ jobs:
           echo $GITHUB_ENV
           echo "-----"
       - name: Build USD (no python)
-        if: steps.cache-openusd-restore.outputs.cache-hit != 'true'
+        # if: steps.cache-openusd-restore.outputs.cache-hit != 'true'
         run: |
-          python3 $USD_REPO_DIR/build_scripts/build_usd.py --no-python --no-materialx OpenUSD_BUILD
+          python $USD_REPO_DIR/build_scripts/build_usd.py OpenUSD_BUILD
           echo "USD_BUILD_DIR=$PWD/OpenUSD_BUILD" >> $GITHUB_ENV
       - name: Confirms Runs
-        if: steps.cache-openusd-restore.outputs.cache-hit != 'true'
+        # if: steps.cache-openusd-restore.outputs.cache-hit != 'true'
         run: |
             $USD_BUILD_DIR/bin/usdcat -h
-      - name: Save OpenUSD Cache (Repo & Build)
-        id: cache-openusd-save
-        uses: actions/cache/save@v3
-        with:
-          path: |
-            OpenUSD_REPO
-            OpenUSD_BUILD
-          key: ${{ steps.cache-openusd-restore.outputs.cache-primary-key }}   
+      # - name: Save OpenUSD Cache (Repo & Build)
+      #   id: cache-openusd-save
+      #   uses: actions/cache/save@v3
+      #   with:
+      #     path: |
+      #       OpenUSD_REPO
+      #       OpenUSD_BUILD
+      #     key: ${{ steps.cache-openusd-restore.outputs.cache-primary-key }}   
       ## $GITHUB_PATH update works only for NEXT step
       ## https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#adding-a-system-path
       - name: Add OpenUSD Build to PATH and PYTHONPATH
         run: |
-          export PYTHONPATH=$PYTHONPATH:$USD_BUILD_DIR/lib/pythonecho 
+          export PYTHONPATH=$PYTHONPATH:$USD_BUILD_DIR/lib/python 
           echo "$USD_BUILD_DIR/bin" >> $GITHUB_PATH
           echo "PYTHONPATH=$PYTHONPATH" >> $GITHUB_ENV
       - name: Confirm in Path
@@ -96,5 +108,9 @@ jobs:
           echo $PYTHONPATH
           echo $PATH
           echo $GITHUB_PATH
+          echo $GITHUB_ENV
           echo "-----"
           usdcat -h
+          usdview -h
+      #### ----------------------  REPO SPECIFIC CODE --------------------------
+      ## If did not check out repo already, do so now. 

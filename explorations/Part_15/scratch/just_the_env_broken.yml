@@ -1,3 +1,12 @@
+
+
+
+# TODO: >> ENV Didn't work one day, exact same code in different files did.
+# What is the real diff
+
+
+
+
 # see https://github.com/pablode/USD/blob/v22.11-ci/.github/workflows/deploy-release.yml
 # https://github.com/usd-wg/assets/pull/49
 # https://github.com/usd-wg/assets/pull/48 
@@ -8,22 +17,11 @@
 
 # About Cache Actions
 # https://github.com/marketplace/actions/cache
-
-
-###################
-#
-# Full install, no caching works in confirmed_works folder as 
-# no_caching_full_works_one_file.yml
-#
-###################
-
-
-
 name: Build Linux
 
 on:
   push:
-    branches: [ "main", "gha_dev" ]
+    branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
       
@@ -32,36 +30,17 @@ jobs:
     name: Build Linux
     runs-on: ubuntu-latest
     steps:
-      #### ---------  CHECKOUT THIS REPO IF WILL USE SCRIPTS FROM IT -----------
       - name: Checkout This Repo
         uses: actions/checkout@v3
-      #### --------------------------  IMAGE SET UP ----------------------------
-      # TODO: https://github.com/marketplace/actions/cache-anything-new ?
       - name: Update apt-get 
         run: sudo apt-get update
       # Ubuntu latest has much of what is needed.
       # https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu2204-Readme.md
       # Still needed OpenGL
+      # TODO: https://github.com/marketplace/actions/cache-anything-new ?
       - name: Set up packages (Linux)
         run: |
           sudo apt-get install -y libgl1-mesa-dev libglu1-mesa-dev
-      # https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
-      - name: Setup Python
-        uses: actions/setup-python@v4
-        with:
-          # 3.10 is default
-          python-version: '3.10'  
-          cache: 'pip' # caching pip dependencies
-          # Cacheing, by default, pins itself to changes in requirements.txt
-          # I'm testing what overriding that means
-          cache-dependency-path: python_should_update.txt
-      - name: Install Dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install install PyOpenGL
-          pip install PySide6==6.4.3
-          pip install numpy
-      #### --------------------------  USD SET UP ------------------------------
       - name: Restore OpenUSD (Repo and Build)
         id: cache-openusd-restore
         uses: actions/cache/restore@v3
@@ -98,7 +77,7 @@ jobs:
       - name: Build USD (no python)
         if: steps.cache-openusd-restore.outputs.cache-hit != 'true'
         run: |
-          python $USD_REPO_DIR/build_scripts/build_usd.py OpenUSD_BUILD
+          python3 $USD_REPO_DIR/build_scripts/build_usd.py --no-python --no-materialx OpenUSD_BUILD
           echo "USD_BUILD_DIR=$PWD/OpenUSD_BUILD" >> $GITHUB_ENV
       - name: Confirms Runs
         if: steps.cache-openusd-restore.outputs.cache-hit != 'true'
@@ -126,8 +105,5 @@ jobs:
           echo $PYTHONPATH
           echo $PATH
           echo $GITHUB_PATH
-          echo $GITHUB_ENV
           echo "-----"
           usdcat -h
-      #### ----------------------  REPO SPECIFIC CODE --------------------------
-      ## If did not check out repo already, do so now. 
