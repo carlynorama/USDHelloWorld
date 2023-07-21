@@ -1,0 +1,19 @@
+name: Build Fresh No Python
+
+runs:
+  using: 'composite'
+      - name: Clone Pixar USD
+        uses: actions/checkout@v3
+        with:
+          repository: PixarAnimationStudios/OpenUSD
+          path: OpenUSD_REPO
+      - name: Add Repo Loaction to GITHUB_ENV
+        run: |
+          echo "USD_REPO_DIR=$PWD/OpenUSD_REPO" >> $GITHUB_ENV
+      - name: Build USD (no python)
+        run: |
+          python $USD_REPO_DIR/build_scripts/build_usd.py --no-python OpenUSD_BUILD
+          echo "USD_BUILD_DIR=$PWD/OpenUSD_BUILD" >> $GITHUB_ENV
+      - name: Confirms Runs
+        run: |
+            $USD_BUILD_DIR/bin/usdcat -h
