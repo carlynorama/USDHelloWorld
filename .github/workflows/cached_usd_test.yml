@@ -74,8 +74,7 @@ jobs:
             OpenUSD_NOPYTHON_BUILD
           key: ${{ steps.cache-openusdnp-restore.outputs.cache-primary-key }}   
       # https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#adding-a-system-path
-      - name: Confirms Runs
-      # if: steps.cache-openusd-restore.outputs.cache-hit != 'true'
+      - name: Confirms Runs With Full Path Post Save
         run: |
             $USD_BUILD_DIR/bin/usdcat -h
       - name: Add OpenUSD Build to PATH and PYTHONPATH
