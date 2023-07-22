@@ -31,7 +31,7 @@ python3 OpenUSD/build_scripts/build_usd.py --no-python $BUILD_DEST_DIR
 Tested successfully with Python 3.9 on MacOS 13.4.1
 
 ```zsh
-git clone https://github.com/PixarAnimationStudios/USD.git
+git clone https://github.com/PixarAnimationStudios/OpenUSD.git
 # there will now be a directory called OpenUSD in the pwd
 python3 OpenUSD/build_scripts/build_usd.py --no-usdview $BUILD_DESTINATION
 ```
