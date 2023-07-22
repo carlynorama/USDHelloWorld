@@ -2,6 +2,8 @@
 
 Repo for learning about the OpenUSD "fileformat". A "Universal Scene Description", OpenUSD both provides a specification (through the code structure) for how to save information on disk, but also a runtime API to weave together complex interlocking information. 
 
+Related Projects: [SketchPad](https://github.com/carlynorama/SketchPad) | [GHActionsForOpenUSD](https://github.com/carlynorama/GHActionsForOpenUSD)
+
 USD, unlike other "file formats", has a a mission to provide NO DESTRUCTIVE compilation of information. That makes USD data storage verbose, but also very flexible, and very easy to work on in teams.  
 
 This repo focuses on understanding the specification for saving information in human readable format, the .usda file.  
@@ -106,6 +108,11 @@ the support files for the learning about the USD file format series on [whynotes
 - Part 8: [Part 6, but in Package with ArgumentParser](https://www.whynotestflight.com/excuses/hello-usd-part-8-multiball-moves-to-a-package/)
 - Part 9: [Learning through Writing a DSL](https://www.whynotestflight.com/excuses/hello-usd-part-9-parlez-vous-multiball-dsl-starts-here/)
 - Part 10: [Reading Day, references and takeaways]()
+- Part 11: More Swift than USD [StringNode Result Builder](https://www.whynotestflight.com/excuses/hello-usd-part-11-gotta-make-it-easier-to-write-file-builders/)
+- Part 12: [Refactoring the USDA writer](https://www.whynotestflight.com/excuses/hello-usd-part-12-lets-make-these-filebuilders-cleaner/) using previous day's work. 
+- Part 13: [simplistic USDA validation via XCTest](https://www.whynotestflight.com/excuses/hello-usd-part-13-test-test-test/)
+- Part 14: [Running those tests on Linux](https://www.whynotestflight.com/excuses/hello-usd-part-14-now-to-get-github-to-run-the-tests/)
+- Part 15: [Cache a USD Build with a GitHub Action](https://www.whynotestflight.com/excuses/hello-usd-part-15-can-a-github-action-cache-a-openusd-build/)
 
 
 ## Link Dump
