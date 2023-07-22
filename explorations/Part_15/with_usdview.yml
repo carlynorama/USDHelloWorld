@@ -66,7 +66,7 @@ jobs:
           ## The branch, tag or SHA to checkout.
           # ref: 
           ## Relative path __under $GITHUB_WORKSPACE __ to place the repository
-          ## This appears to be a litteral. Cannot take $GITHUB_ENV variable.
+          ## This appears to be a literal. Cannot take $GITHUB_ENV variable.
           path: OpenUSD_REPO
       - name: Add Repo Loaction to GITHUB_ENV
         if: steps.cache-openusd-restore.outputs.cache-hit != 'true'
