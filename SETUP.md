@@ -21,9 +21,9 @@ cd $DOWNLOAD_DIR
 git clone https://github.com/PixarAnimationStudios/OpenUSD.git
 # there will now be a directory called OpenUSD in the pwd
 # the below will show the build options
-python3 USD/build_scripts/build_usd.py
+python3 OpenUSD/build_scripts/build_usd.py
 # run with the --no-python option
-python3 USD/build_scripts/build_usd.py --no-python $BUILD_DEST_DIR
+python3 OpenUSD/build_scripts/build_usd.py --no-python $BUILD_DEST_DIR
 ```
 
 ### Python, no usdview
