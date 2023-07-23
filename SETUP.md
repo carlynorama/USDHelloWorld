@@ -31,7 +31,7 @@ python3 OpenUSD/build_scripts/build_usd.py --no-python $BUILD_DEST_DIR
 Tested successfully with Python 3.9 on MacOS 13.4.1
 
 ```zsh
-git clone https://github.com/PixarAnimationStudios/USD.git
+git clone https://github.com/PixarAnimationStudios/OpenUSD.git
 # there will now be a directory called OpenUSD in the pwd
 python3 OpenUSD/build_scripts/build_usd.py --no-usdview $BUILD_DESTINATION
 ```
@@ -164,7 +164,7 @@ eval "$(pyenv init -)"
 # Restart your shell for the changes to take effect.
 ```
 
-This means pyenv will take over managing Python in every zsh shell.
+This means pyenv will take over managing Python in every zsh shell. Alternatively one could put those lines at the top of the `.command` file instead.
 
 To then use pyenv, one choice is to call it at the beginning of any shell process, for example:
 
