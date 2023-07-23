@@ -164,7 +164,7 @@ eval "$(pyenv init -)"
 # Restart your shell for the changes to take effect.
 ```
 
-This means pyenv will take over managing Python in every zsh shell.
+This means pyenv will take over managing Python in every zsh shell. Alternatively one could put those lines at the top of the `.command` file instead.
 
 To then use pyenv, one choice is to call it at the beginning of any shell process, for example:
 
