@@ -6,11 +6,13 @@ These are the instruction to install the full library from Pixar. If your langua
 - <https://pypi.org/project/usd-core/>
 
 
-WIP: Created 2023 07 01 for OpenUSD 23.05, Updated 07 23 for 23.08
+WIP: Created 2023 07 01 for OpenUSD 23.05, Updated 07 24 for 23.08 and Ubuntu 22.04.2
 
 ## Install Steps
 
 CMake is required. `brew install cmake` if Homebrew is installed. 
+
+Note for Linux: USD requires CMake 3.24 or higher. `sudo apt install cmake` may not get that for you. [Check the version before installing](https://unix.stackexchange.com/questions/6284/how-do-i-check-package-version-using-apt-get-aptitude). Instructions for installing the latest version of CMake [here](https://cmake.org/install/)(official) and [here](https://graspingtech.com/upgrade-cmake/)(using snappy).
 
 ### C++ tools only
 
