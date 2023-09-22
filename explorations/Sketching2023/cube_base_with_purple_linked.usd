@@ -8,13 +8,22 @@
 
 def Xform "my_shape"
 {
+    def "Materials" ( 
+        prepend references = @./materials.usd@
+    )
+    {
+    }
+
     double3 xformOp:translate = (0, 0, 0)
     uniform token[] xformOpOrder = ["xformOp:translate"]
 
-    def Sphere "sphere"
+    def Cube "cube" (
+        prepend apiSchemas = ["MaterialBindingAPI"]
+    )
     {
+        rel material:binding = </my_shape/Materials/purple>
         float3[] extent = [(-2, -2, -2), (2, 2, 2)]
-        color3f[] primvars:displayColor = [(0, 0, 1)]
         double radius = 2
     }
 }
+

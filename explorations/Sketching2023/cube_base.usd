@@ -1,0 +1,19 @@
+#usda 1.0
+(
+    defaultPrim = "my_shape"
+    metersPerUnit = 1
+    upAxis = "Y"
+    doc = "Base shape for amalgamation"
+)
+
+def Xform "my_shape"
+{
+    double3 xformOp:translate = (0, 0, 0)
+    uniform token[] xformOpOrder = ["xformOp:translate"]
+
+    def Cube "cube"
+    {
+        float3[] extent = [(-2, -2, -2), (2, 2, 2)]
+        double radius = 2
+    }
+}
