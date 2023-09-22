@@ -1,18 +1,22 @@
 # OpenUSD Pixar Library Set Up Instructions for MacOS
 
-WIP: Created 2023 07 01 for OpenUSD 23.05
 
 These are the instruction to install the full library from Pixar. If your language of choice will be python and you don't need every last feature try `pip install usd-core` instead.
 
 - <https://pypi.org/project/usd-core/>
 
+
+WIP: Created 2023 07 01 for OpenUSD 23.05, Updated 07 24 for 23.08 and Ubuntu 22.04.2
+
 ## Install Steps
 
 CMake is required. `brew install cmake` if Homebrew is installed. 
 
+Note for Linux: USD requires CMake 3.24 or higher. `sudo apt install cmake` may not get that for you. [Check the version before installing](https://unix.stackexchange.com/questions/6284/how-do-i-check-package-version-using-apt-get-aptitude). Instructions for installing the latest version of CMake [here](https://cmake.org/install/)(official) and [here](https://graspingtech.com/upgrade-cmake/)(using snappy).
+
 ### C++ tools only
 
-Tested with with Python 3.11 on MacOS 13.4.1
+Tested with with 23.05/Python 3.11, 23.08/3.10 on MacOS 13.4.1
 (Python may only used to run the build script? TODO: Be sure.) 
 
 ```zsh
@@ -28,7 +32,7 @@ python3 OpenUSD/build_scripts/build_usd.py --no-python $BUILD_DEST_DIR
 
 ### Python, no usdview
 
-Tested successfully with Python 3.9 on MacOS 13.4.1
+Tested successfully with 23.05/Python 3.9, 23.08/3.10 on MacOS 13.4.1
 
 ```zsh
 git clone https://github.com/PixarAnimationStudios/OpenUSD.git
@@ -39,7 +43,7 @@ TODO: Does this also need numpy?
 
 ### Python, usdview
 
-Tested successfully with Python 3.9 on MacOS 13.4.1
+Tested successfully with 23.05/Python 3.9 on MacOS 13.4.1
 
 ```zsh
 pip3 install PyOpenGL
@@ -50,7 +54,7 @@ git clone https://github.com/PixarAnimationStudios/OpenUSD.git
 python3 OpenUSD/build_scripts/build_usd.py $BUILD_DESTINATION
 ```
 
-## Set Up Envionment
+## Set Up Environment
 
 Example script to set up the environment. 
 
@@ -128,15 +132,15 @@ If following directly the REPL check in the same shell session the below should 
 
 `usdview HelloWorld.usda`
 
-# USDZ Tools
+## USDZ Tools
 
 The USDZ scripts work better when run using a fresh build of the Pixar tools in the path instead of the included build and then running the script with that build's preferred python explicitly: e.g. `python3 /Applications/usdpython/usdzconvert/usdARKitChecker -v three_d_thing.usda`
 
 TODO: Boost may have to be updated/altered to get all of the samples to run. What is the PIL module? 
 
-# Tips on using different version of Python
+## Tips on using different version of Python
 
-## pyenv
+### pyenv
 
 <https://github.com/pyenv/pyenv>
 

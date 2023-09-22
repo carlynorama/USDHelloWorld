@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.2//EN"
+                 "http://www.web3d.org/specifications/x3d-3.2.dtd">
+<X3D profile='Immersive' version='3.2' xsd:noNamespaceSchemaLocation='http://www.web3d.org/specifications/x3d-3.2.xsd' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance'>
+        <head>
+                <meta content="04 Aug 2023" name="created"/>
+                <meta content="SketchPad X3D FileBuilder" name="generator"/>
+        </head>
+        <Scene>
+                <Transform translation='3.0 2.0 5.0'>
+                        <Shape>
+                                <Appearance>
+
+                                </Appearance>
+                                <Sphere radius='1.0'></Sphere>
+                        </Shape>
+                </Transform>
+                <Shape>
+                        <Appearance>
+                                <Material diffuseColor='0.5 0.5 1.0'></Material>
+                        </Appearance>
+                        <Box size='3.0 3.0 3.0'/></Box>
+                </Shape>
+                <Transform translation='-3.0 -2.0 -5.0'>
+                        <Shape>
+                                <Appearance>
+                                        <Material diffuseColor='0.0 0.0 1.0'></Material>
+                                </Appearance>
+                                <Box size='4.0 4.0 4.0'/></Box>
+                        </Shape>
+                </Transform>
+        </Scene>
+</X3D>

@@ -39,6 +39,7 @@ def Xform "Cube"
         }
 
         "green" {
+            over "cubeMesh"
             {
                 rel material:binding = </Cube/Materials/myFlatGreen>
             }
