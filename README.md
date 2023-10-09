@@ -4,7 +4,7 @@ Repo for learning about the OpenUSD "fileformat". A "Universal Scene Description
 
 Related Projects: [SketchPad](https://github.com/carlynorama/SketchPad) | [GHActionsForOpenUSD](https://github.com/carlynorama/GHActionsForOpenUSD)
 
-USD, unlike other "file formats", has a a mission to provide NO DESTRUCTIVE compilation of information. That makes USD data storage verbose, but also very flexible, and very easy to work on in teams.  
+USD, unlike other "file formats", has a a mission to provide NON DESTRUCTIVE compilation of information. That makes USD data storage verbose, but also very flexible, and very easy to work on in teams.  
 
 This repo focuses on understanding the specification for saving information in human readable format, the .usda file.  
 
@@ -16,6 +16,9 @@ Proposed Spec for USDC files discussion:
 
 Asset Structure Guidelines:  
 <https://github.com/usd-wg/assets/blob/main/docs/asset-structure-guidelines.md>
+
+Get Help:
+<https://forum.aousd.org/>
 
 ## Top Getting Started Picks
 
