@@ -19,7 +19,6 @@
 - [RealityKit](https://developer.apple.com/documentation/RealityKit)
     - [RealityView](https://developer.apple.com/documentation/RealityKit/RealityView)
 - [SceneKit](https://developer.apple.com/documentation/scenekit)
-- SpriteKit -> Used in KeyNote render
 - [ARKit](https://developer.apple.com/documentation/ARKit)
 - [ModelIO](https://developer.apple.com/documentation/modelio)
 
@@ -156,7 +155,7 @@ This code assumes that the USD file is annotated with an Input Target component 
 
 This is easily accomplished via Reality Composer Pro UI, using the "Add Component Button" (Put model in Scene, add to instance in Scene seems to be the way.)
 
-However, if you wanted to do so programatically, in theory one could use the following code instead, but I have found it temperamental getting it to work with USD files. (TODO: Adapt code from <https://developer.apple.com/forums/thread/119773>?) 
+However, if you wanted to do so programmatically, in theory one could use something like the following code instead, but I have found it temperamental getting it to work with USD files. 
 
 ```swift
 //based on https://developer.apple.com/forums/thread/734110
@@ -198,6 +197,21 @@ struct ImmersiveView: View {
     }
 }
 ```
+
+This does work, but for some reason bringing in Robot directly does not. TBD. 
+
+```swift
+                if let scene = try? await Entity(named: "Scene", in: realityKitContentBundle) {
+                    if let model = scene.findEntity(named: "Robot") {
+                        print("Found Robot")
+                        model.generateCollisionShapes(recursive: false)
+                        model.components.set(InputTargetComponent())
+                        content.add(scene) //can also just add model
+                    }
+                }
+```
+
+(TODO: Learn from <https://developer.apple.com/forums/thread/119773>?) 
 
 
 ## Resources 
