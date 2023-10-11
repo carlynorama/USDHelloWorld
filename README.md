@@ -2,6 +2,8 @@
 
 Repo for learning about the OpenUSD "fileformat". A "Universal Scene Description", OpenUSD both provides a specification (through the code structure) for how to save information on disk, but also a runtime API to weave together complex interlocking information. 
 
+For more info and to get help: <https://forum.aousd.org/>
+
 Related Projects: [SketchPad](https://github.com/carlynorama/SketchPad) | [GHActionsForOpenUSD](https://github.com/carlynorama/GHActionsForOpenUSD)
 
 USD, unlike other "file formats", has a a mission to provide NON DESTRUCTIVE compilation of information. That makes USD data storage verbose, but also very flexible, and very easy to work on in teams.  
@@ -17,8 +19,7 @@ Proposed Spec for USDC files discussion:
 Asset Structure Guidelines:  
 <https://github.com/usd-wg/assets/blob/main/docs/asset-structure-guidelines.md>
 
-Get Help:
-<https://forum.aousd.org/>
+
 
 ## Top Getting Started Picks
 
